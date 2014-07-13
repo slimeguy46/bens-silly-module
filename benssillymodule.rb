@@ -6,11 +6,11 @@ module BensSillyModule
 			puts "meow"
 		end
 	end
-	def BensSillyModule.insult()
+	def BensSillyModule.insult
 		prng = Random.new()
 		puts $insults[((prng.rand)*($insults.length)).floor]
 	end
-	def BensSillyModule.sagan()
+	def BensSillyModule.sagan
 		prng = Random.new()
 		star_stuff = (prng.rand*1000000000).floor # Warning! Generates up to a billion instances of that string! Use with caution. To generate a full 1,000,000,000 instances took 2378.092 seconds, or 39.63 minutes on my beastly PC.
 		print "Billions"
@@ -143,7 +143,7 @@ module BensSillyModule
 	end
 	def BensSillyModule.generate_horror_title
 		characters = ["Jason","Freddy","Alien","Aliens","The Blob","Dracula","Predator","Predators","Satan","Bigfoot","Chuckie","Captain Planet","Michael Myers","Cujo","Ghostface","The Hash-Slinging Slasher","Jaws","Pinhead","Leatherface"]
-		locations = ["Manhatten","Long Island","Tokyo","Your Nightmares","Hell","Space","Your Mother's Basement","Los Angeles","New York","Jurrasic Park","Sleepaway Camp","Las Vegas"]
+		locations = ["Manhatten","Long Island","Tokyo","Your Nightmares","Hell","Space","Your Mother's Basement","Los Angeles","New York","Jurassic Park","Sleepaway Camp","Las Vegas"]
 		in_series = ["The First","I","1","The Second","II","2","The Third","III","3","The Fourth","IV","4","The Fifth","V","5","The Sixth","VI","6","The Seventh","VII","7","The Eighth","VIII","8","The Ninth","IX","9","The Tenth","X","10","The Final Chapter","The Revenge","The End","The Final Battle","The Horrific Conclusion","XX","XXX","2099","13","XIII","Nightmare Edition"]
 		prng = Random.new
 		char1 = characters[prng.rand(characters.length)]
@@ -151,8 +151,25 @@ module BensSillyModule
 		char3 = characters[prng.rand(characters.length)]
 		location = locations[prng.rand(locations.length)]
 		suffix = in_series[prng.rand(in_series.length)]
-		formats = ["#{char1} vs. #{char2} in #{location}: #{suffix}","#{char1} and #{char2} Take #{location}","#{char1} takes #{location}","#{char1} vs. #{char2}","#{char1} in #{location}","#{char1} #{suffix}: #{char1} Takes #{location}","#{char1} #{suffix}: #{char1} in #{location}","#{char1} and #{char2} vs. #{char3}","#{char1} vs. #{char2} and #{char3}","#{char1} #{suffix}","The Death of #{char1}","#{char1} Kills #{char2}"]
+		formats = ["#{char1} vs. #{char2} in #{location}: #{suffix}","#{char1} and #{char2} Take #{location}","#{char1} takes #{location}","#{char1} vs. #{char2}","#{char1} in #{location}","#{char1} #{suffix}: #{char1} Takes #{location}","#{char1} #{suffix}: #{char1} in #{location}","#{char1} and #{char2} vs. #{char3}","#{char1} vs. #{char2} and #{char3}","#{char1} #{suffix}","The Death of #{char1}","#{char1} #{suffix}: #{char1} Kills #{char2}"]
 		formula = formats[prng.rand(formats.length)]
 		puts formula
+	end
+	def BensSillyModule.jurassic_park
+		puts "Jurassic Park, System Security Interface"
+		puts "Version 4.0.5, Alpha E"
+		puts "Ready..."
+		print "> "
+		action = gets.chomp
+		words = action.split(" ")
+		command = (words[0]).downcase
+		print "#{command}: PERMISSION DENIED."
+		sleep(0.5)
+		puts "...and..."
+		sleep(0.5)
+		100.times do
+			sleep(0.05)
+			puts "YOU DIDN'T SAY THE MAGIC WORD!"
+		end
 	end
 end
