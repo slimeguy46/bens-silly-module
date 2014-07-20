@@ -172,4 +172,21 @@ module BensSillyModule
 			puts "YOU DIDN'T SAY THE MAGIC WORD!"
 		end
 	end
+	def BensSillyModule.to_a_nice_format(string) # I got tired of seeing filenames with varying levels of casing and punctuation, so I made this to remove all that and revert stings to their base form.
+		string = string.downcase.chomp
+		acceptable_chars = [" ","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
+		if string.include? "  "
+			string.gsub!(/  /, " ")
+		end
+		letters = string.split("")
+		new_letters = []
+		for letter in letters do
+			for char in acceptable_chars do
+				if letter == char
+					new_letters << char
+				end
+			end
+		end
+		string = new_letters.join
+	end
 end
