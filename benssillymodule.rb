@@ -6,7 +6,7 @@ module BensSillyModule
 			puts "meow"
 		end
 	end
-	def BensSillyModule.insult
+	def BensSillyModule.insult # Just insults the user using a randomly picked insult from the above array of insults.
 		prng = Random.new()
 		puts $insults[((prng.rand)*($insults.length)).floor]
 	end
@@ -153,7 +153,7 @@ module BensSillyModule
 		suffix = in_series[prng.rand(in_series.length)]
 		formats = ["#{char1} vs. #{char2} in #{location}: #{suffix}","#{char1} and #{char2} Take #{location}","#{char1} takes #{location}","#{char1} vs. #{char2}","#{char1} in #{location}","#{char1} #{suffix}: #{char1} Takes #{location}","#{char1} #{suffix}: #{char1} in #{location}","#{char1} and #{char2} vs. #{char3}","#{char1} vs. #{char2} and #{char3}","#{char1} #{suffix}","#{char1} #{suffix}: The Death of #{char1}","#{char1} #{suffix}: #{char1} Kills #{char2}"]
 		formula = formats[prng.rand(formats.length)]
-		puts formula
+		formula
 	end
 	def BensSillyModule.jurassic_park
 		puts "Jurassic Park, System Security Interface"
@@ -174,9 +174,15 @@ module BensSillyModule
 	end
 	def BensSillyModule.to_a_nice_format(string) # I got tired of seeing filenames with varying levels of casing and punctuation, so I made this to remove all that and revert stings to their base form.
 		string = string.downcase.chomp
-		acceptable_chars = [" ","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
+		acceptable_chars = [" ","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","1","2","3","4","5","6","7","8","9","0"]
 		if string.include? "  "
 			string.gsub!(/  /, " ")
+		end
+		if string.include? "-"
+			string.gsub!(/-/, " ")
+		end
+		if string.include? "_"
+			string.gsub!(/_/," ")
 		end
 		letters = string.split("")
 		new_letters = []
@@ -188,5 +194,105 @@ module BensSillyModule
 			end
 		end
 		string = new_letters.join
+	end
+	def BensSillyModule.return_four # Does exactly what you would expect
+		4
+	end
+	def BensSillyModule.generate_typical_username # Yes, this uses the base code from my horror movie generator, so sue me
+		terms = ["My","360","noscope","n0sc0pe","N05C0P3","420","blazeit","b1az3it","w33d","weed","sm0kin","720","180","quickscope","quikscope","quiksc0p3","l33t","1337","pr0","faze","faz3","0ptic","optic","sw@g","Y010","swag","5W@GGG","erryday","glazeit","OpTiC","FaZe","BlAzEiT","WeEd","NoSc0pE","SwAg","YoLo","sw@ggy","slayer","Slayer","Ki11er","Monster","DeStRoYeR","boi","crazy","CrAzY","dope","epic","1080","666","HASH","HaSh","hash","DeViL","123","321","haxor","hax","HAXX","PrO","da_b0mb",]
+		prng = Random.new
+		term1 = terms[prng.rand(terms.length)]
+		term2 = terms[prng.rand(terms.length)]
+		term3 = terms[prng.rand(terms.length)]
+		term4 = terms[prng.rand(terms.length)]
+		term5 = terms[prng.rand(terms.length)]
+		term6 = terms[prng.rand(terms.length)]
+		formats = ["#{term1}_#{term2}","#{term1}_#{term2}[#{term3}]","x#{term1}x#{term2}x#{term3}","x#{term1}x#{term2}x#{term3}[#{term4}]","#{term1}#{term2}#{term3}#{term4}#{term5}#{term6}","xX#{term1}#{term2}#{term3}Xx","#{term1}#{term2}#{term3}#{term4}","#{term1}_#{term2}_#{term3}_#{term4}","xXx#{term1}xXx","xXx#{term1}#{term2}xXx"]
+		formula = formats[prng.rand(formats.length)]
+		formula
+	end
+	# To do: access a dictionary in Ruby to make an indie band name generator
+	# To do: make a method comparing your complete genome to that of Kevin Bacon
+end
+class Geek
+	def initialize(name, age, height_in_meters, weight_in_kilos, birthplace, username, favorite_trek_captain, favorite_doctor, favorite_show, favorite_language, gender="male", living_with_parents = true, job = nil)
+		@name = name
+		@age = age
+		@height_in_meters = height_in_meters
+		@weight_in_kilos = weight_in_kilos
+		@birthplace = birthplace
+		@username = username
+		@favorite_trek_captain = favorite_trek_captain
+		@favorite_doctor = favorite_doctor
+		@favorite_show = favorite_show
+		@gender = gender
+		@living_with_parents = living_with_parents
+		@job = job
+	end
+	def name
+		@name
+	end
+	def set_name(name)
+		@name = name
+	end
+	def age
+		@age
+	end
+	def set_age(age)
+		@age = age
+	end
+	def height_in_meters
+		@height_in_meters
+	end
+	def set_height(height)
+		@height_in_meters = height
+	end
+	def weight_in_kilos
+		@weight_in_kilos
+	end
+	def set_weight(weight)
+		@weight_in_kilos = weight
+	end
+	def username
+		@username
+	end
+	def set_username(un)
+		@username = un
+	end
+	def favorite_trek_captain
+		@favorite_trek_captain
+	end
+	def set_favorite_captain(cap)
+		@favorite_trek_captain = cap
+	end
+	def favorite_doctor
+		@favorite_doctor
+	end
+	def set_fav_doctor(doc)
+		@favorite_doctor = doc
+	end
+	def favorite_show
+		@favorite_show
+	end
+	def set_favorite_show(show)
+		@favorite_show = show
+	end
+	def favorite_language
+		@favorite_language
+	end
+	def set_favorite_language(lang)
+		@favorite_language = lang
+	end
+	def living_status
+		@living_with_parents
+	end
+	def set_living_status(bool)
+		@living_with_parents = bool
+	end
+	def job
+		@job
+	end
+	def set_job(job)
+		@job = job
 	end
 end
