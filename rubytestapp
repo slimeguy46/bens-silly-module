@@ -1,3 +1,4 @@
 #this is just a Ruby app to test my silly module. Created by Benjamin Rausch!
 $LOAD_PATH << '.'
 require 'BensSillyModule'
+puts BensSillyModule.generate_typical_username
