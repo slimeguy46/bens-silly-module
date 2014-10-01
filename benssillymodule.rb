@@ -241,8 +241,7 @@ module BensSillyModule
 	26. Undecided
 	27. No Qualifications
 	28. Jack of All Trades"
-		num = gets.chomp.to_i
-		# Find a way to verify they entered one of the correct integers, then go back and have them do it again if they did not
+		num = gets.chomp.to_i # Find a way to verify they entered one of the correct integers, then go back and have them do it again if they did not
 		first = case num
 		when 1 then "B"
 		when 2 then "C"
@@ -309,8 +308,7 @@ module BensSillyModule
 			when 27 then "!"
 			when 28 then "AT"
 			end
-			first = first + "/G" + extra
-			# This is the only spot where I separated the first letter from the case unnecessarily, I didn't do it later but I don't feel a need to change it to fit in
+			first = first + "/" + extra # This is the only spot where I separated the first letter from the case unnecessarily, I didn't do it later but I don't feel a need to change it to fit in
 		end
 		puts "Great. Next, how do you dress?"
 		puts "	1. I tend to wear conservative dress such as a business suit or worse, a tie.
@@ -376,7 +374,7 @@ module BensSillyModule
 		puts "Next is your age. Do you wish to give exact age (1), or age range (2)?"
 		num = gets.chomp.to_i
 		if num == 1
-			puts "Alright, what's your age? (enter a number)"
+			puts "Alright, what is your age? (enter a number)"
 			age = gets.chomp
 			fourth = "a"+age
 		else
@@ -427,7 +425,7 @@ module BensSillyModule
 		when 7 then "C--"
 		when 8 then "C---"
 		end
-		puts "Now tell us, what Unx-based operating system do you use?"
+		puts "Now tell us, what Unix-based operating system do you use?"
 		puts "	1. BSD
 	2. Linux
 	3. Ultrix
@@ -439,22 +437,28 @@ module BensSillyModule
 	9. Sun OS/Solaris
 	10. SCO Unix
 	11. NeXT
-	12. Some other one not listed"
+	12. Some other one not listed
+	13. I don't use Unix"
 		num = gets.chomp.to_i
 		sys = case num
-		when 1 then "B"
-		when 2 then "L"
-		when 3 then "U"
-		when 4 then "A"
-		when 5 then "V"
-		when 6 then "H"
-		when 7 then "I"
-		when 8 then "O"
-		when 9 then "S"
-		when 10 then "C"
-		when 11 then "X"
-		when 12 then "*"
+		when 1 then "UB"
+		when 2 then "UL"
+		when 3 then "UU"
+		when 4 then "UA"
+		when 5 then "UV"
+		when 6 then "UH"
+		when 7 then "UI"
+		when 8 then "UO"
+		when 9 then "US"
+		when 10 then "UC"
+		when 11 then "UX"
+		when 12 then "U*"
+		when 13 then "q"
 		end
+		if (sys == "q")
+			sixth = "!U"
+			eighth = "!L"
+		else
 		puts "Now, how good are you at using Unix?"
 		puts "	1. I am the sysadmin. If you try and crack my machine don't be surprised if the municipal works department gets an \"accidental\" computer-generated order to put start a new landfill on your front lawn or your quota is reduced to 4K.
 	2. I don't need to crack /etc/passwd because I just modified su so that it doesn't prompt me. The admin staff doesn't even know I'm here. If you don't understand what I just said, this category does NOT apply to you!
@@ -475,8 +479,9 @@ module BensSillyModule
 		when 7 then "--"
 		when 8 then "---"
 		end
-		sixth = "U"+sys+lev
-		if num < 4
+		sixth =  sys+lev
+		end
+		if (num)&&(num < 4)
 		puts "You're pretty good at Unix. What do you think of Perl?"
 		puts "	1. I am Larry Wall, Tom Christiansen, or Randal Schwartz.
 	2. I don't write Perl, I speak it. Perl has superseded all other programming languages. I firmly believe that all programs can be reduced to a Perl one-liner. I use Perl to achieve status 2 in the above question.
@@ -501,9 +506,10 @@ module BensSillyModule
 		when 9 then " P---"
 		when 10 then " P!"
 		end
-	else
-		seventh = "" # I set it up this way, so there are spaces, because not all users will qualify to answer the Perl question, and if there weren't spaces in the case there would be double spaces when it ended up equaling "" later if I followed normal syntax writing the final line of the code generator
-	end
+		else
+			seventh = "" # I set it up this way, so there are spaces, because not all users will qualify to answer the Perl question, and if there weren't spaces in the case there would be double spaces when it ended up equaling "" later if I followed normal syntax writing the final line of the code generator
+		end
+		if (eighth != "!L")
 		puts "How good are you at Linux?"
 		puts "	1. I am Linus, grovel before
 	2. I am a Linux wizard. I munch C code for breakfast and have enough room left over for a kernel debugging. I have so many patches installed that I lost track about ten versions ago. Linux newbies consider me a net.god.
@@ -526,6 +532,7 @@ module BensSillyModule
 		when 8 then "L--"
 		when 9 then "L---"
 		end
+		end
 		puts "What do you think of GNU Emacs?"
 		puts "	1. Emacs is my login shell!! M-x doctor is my psychologist! I use emacs to control my TV and toaster oven! All you vi people don't know what you're missing! I read alt.religion.emacs, alt.sex.emacs, and comp.os.emacs.
 	2. I know and use elisp regularly!
@@ -534,7 +541,8 @@ module BensSillyModule
 	5. Emacs is too big and bloated for my tastes.
 	6. Emacs is just a fancy word processor.
 	7. Emacs sucks! vi forever!!!
-	8. Emacs sucks! pico forever!!!"
+	8. Emacs sucks! pico forever!!!
+	9. I don't use or have an opinion on GNU Emacs."
 		num = gets.chomp.to_i
 		ninth = case num
 		when 1 then "E+++"
@@ -545,6 +553,7 @@ module BensSillyModule
 		when 6 then "E--"
 		when 7 then "E---"
 		when 8 then "E----"
+		when 9 then "E?"
 		end
 		puts "How much do you use the World Wide Web?"
 		puts "	1. I am a WebMaster . Don't even think about trying to view my homepage without the latest version of Netscape. When I'm not on my normal net connection, I surf the web using my Newton and a cellular modem.
@@ -552,7 +561,8 @@ module BensSillyModule
 	3. I have the latest version of Netscape, and wander the web only when there's something specific I'm looking for.
 	4. I have a browser and a connection. Occasionally I'll use them.
 	5. The web is really a pain. Life was so much easier when you could transfer information by simple ASCII. Now everyone won't even consider your ideas unless you spiff them up with bandwidth-consuming pictures and pointless information links.
-	6. A pox on the Web! It wastes time and bandwidth and just gives the uneducated morons a reason to clutter the Internet."
+	6. A pox on the Web! It wastes time and bandwidth and just gives the uneducated morons a reason to clutter the Internet.
+	7. I don't use the web."
 		num = gets.chomp.to_i
 		tenth = case num
 		when 1 then "W+++"
@@ -561,6 +571,7 @@ module BensSillyModule
 		when 4 then "W"
 		when 5 then "W-"
 		when 6 then "W--"
+		when 7 then "!W"
 		end
 		puts "How often do you use USENET News?"
 		puts "	1. I am Tim Pierce.
@@ -572,7 +583,8 @@ module BensSillyModule
 	7. News sucks! 'Nuff said.
 	8. I work for Time Magazine.
 	9. I am a Scientologist.
-	10. All I do is read news."
+	10. All I do is read news.
+	11. I don't use or have an opinion on USENET News."
 		num = gets.chomp.to_i
 		eleventh = case num
 		when 1 then "N++++"
@@ -585,8 +597,9 @@ module BensSillyModule
 		when 8 then "N---"
 		when 9 then "N----"
 		when 10 then "N*"
+		when 11 then "N?"
 		end
-		puts "What's your relation to USENET Oracle?"
+		puts "What is your relation to USENET Oracle?"
 		puts "	1. I am Steve Kinzler.
 	2. I am an active Priest.
 	3. I was a Priest, but have retired.
@@ -594,7 +607,8 @@ module BensSillyModule
 	5. I have been incarnated at least once.
 	6. I've submitted a question, but it has never been incarnated.
 	7. I sent my question to the wrong group and got flamed.
-	8. Who needs answers from a bunch of geeks anyhow?"
+	8. Who needs answers from a bunch of geeks anyhow?
+	9. I don't use or have an opinion on USENET Oracle."
 		num = gets.chomp.to_i
 		twelfth = case num
 		when 1 then "o+++++"
@@ -605,6 +619,7 @@ module BensSillyModule
 		when 6 then "o"
 		when 7 then "o-"
 		when 8 then "o--"
+		when 9 then "o?"
 		end
 		puts "Kibo is."
 		puts "	1. I am Kibo.
@@ -641,7 +656,8 @@ module BensSillyModule
 	6. Ok, so I use MS Windows, I don't have to like it.
 	7. I'm still trying to insttall MS Windows and have at least one peripheral that never works right.
 	8. MS Windows is a joke operating system. Hell, it's not even an operating system. NT is Not Tough enough for me either. 95 is how may times it will crash an hour.
-	9. Windows has set back the computing industry by at least 10 years. Bill Gates should be drawn, quartered, hung, shot, poisoned, disembowelled, and then REALLY hurt."
+	9. Windows has set back the computing industry by at least 10 years. Bill Gates should be drawn, quartered, hung, shot, poisoned, disembowelled, and then REALLY hurt.
+	10. I don't use or have an opinion on Windows."
 		num = gets.chomp.to_i
 		fourteenth = case num
 		when 1 then "w+++++"
@@ -653,6 +669,7 @@ module BensSillyModule
 		when 7 then "w-"
 		when 8 then "w--"
 		when 9 then "w---"
+		when 10 then "w?"
 		end
 		puts "What do you think of OS/2?"
 		puts "	1. I live, eat and breathe OS/2. All of my hard drives are HPFS. I am the Anti-Gates.
@@ -662,7 +679,8 @@ module BensSillyModule
 	5. Tried it, didn't like it.
 	6. I can't even get the thing to install!
 	7. Windows RULES!!! Long live Bill Gates. (See Option 1 of Previous Question)
-	8. I am Bill Gates of Borg. OS/2 is irrelevant."
+	8. I am Bill Gates of Borg. OS/2 is irrelevant.
+	9. I don't use or have an opinion on OS/2."
 		num = gets.chomp.to_i
 		fifteenth = case num
 		when 1 then "O+++"
@@ -673,13 +691,15 @@ module BensSillyModule
 		when 6 then "O--"
 		when 7 then "O---"
 		when 8 then "O----"
+		when 9 then "O?"
 		end
 		puts "How do you feel about the Macintosh?"
 		puts "	1. I am a Mac guru. Anything those DOS putzes and Unix nerds can do, I can do better, and if not, I'll write the damn software to do it.
 	2. A Mac has its uses and I use it quite often.
 	3. I use a Mac, but I'm pretty indifferent about it.
 	4. Macs suck. ALl real geeks have a character prompts.
-	5. Macs do more than suck. They make a user stupid by allowing them to use the system without knowing what they are doing. Mac weenies have lower IQs than the fuzz in my navel."
+	5. Macs do more than suck. They make a user stupid by allowing them to use the system without knowing what they are doing. Mac weenies have lower IQs than the fuzz in my navel.
+	6. I don't use or have an opinion on Macintoshes."
 		num = gets.chomp.to_i
 		sixteenth = case num
 		when 1 then "M++"
@@ -687,6 +707,7 @@ module BensSillyModule
 		when 3 then "M"
 		when 4 then "M-"
 		when 5 then "M--"
+		when 6 then "M?"
 		end
 		puts "How do you feel about VMS?"
 		puts "	1. I am a VMS sysadmin. I wield far more power than those UNIX admins, because UNIX can be found on any dweeb's desktop. Power through obscurity is my motto.
@@ -694,7 +715,8 @@ module BensSillyModule
 	3. I tend to like VMS better than Unix.
 	4. I've used VMS.
 	5. Unix is much better than VMS for my computing needs.
-	6. I would rather smash my head repeatedly into a brick wall than suffer the agony of working with VMS. It's reminiscent of a dead and decaying pile of moose droppings. Unix rules the universe."
+	6. I would rather smash my head repeatedly into a brick wall than suffer the agony of working with VMS. It's reminiscent of a dead and decaying pile of moose droppings. Unix rules the universe.
+	7. I don't use VMS or have an opinion on it."
 		num = gets.chomp.to_i
 		seventeenth = case num
 		when 1 then "V+++"
@@ -703,6 +725,7 @@ module BensSillyModule
 		when 4 then "V"
 		when 5 then "V-"
 		when 6 then "V--"
+		when 7 then "V?"
 		end
 		puts "Where do you land on the political and social issues sliding scale?"
 		puts "	1. Legalize drugs! Abolish the government. \"Fuck the draft!\"
@@ -756,7 +779,7 @@ module BensSillyModule
 		when 6 then "Y--"
 		when 7 then "Y---"
 		end
-		puts "What's your experience with Pretty Good Privacy (PGP)?"
+		puts "What is your experience with Pretty Good Privacy (PGP)?"
 		puts "	1. I am Phillip Zimmerman.
 	2. I don't send or answer mail that is not encrypted, or at the very least signed. If you are reading this without decrypting it first, something is wrong. IT DIDN'T COME FROM ME!
 	3. I have the most recent version and use it regularly.
@@ -765,7 +788,8 @@ module BensSillyModule
 	6. I don't have anything to hide.
 	7. I feel that the glory of the Internet is in the anarchic, trusting environment that so nurtures the exchange of information. Encryption just bogs that down.
 	8. If you support encryption on the Internet, you must be a drug dealer or terrorist or something like that.
-	9. Oh, here is something you all can use that is better (insert Clipper here)."
+	9. Oh, here is something you all can use that is better (insert Clipper here).
+	10. I've never used Pretty Good Privacy nor have an opinion on encryption."
 		num = gets.chomp.to_i
 		twentyfirst = case num
 		when 1 then "PGP++++"
@@ -777,6 +801,7 @@ module BensSillyModule
 		when 7 then "PGP--"
 		when 8 then "PGP---"
 		when 9 then "PGP----"
+		when 10 then "PGP?"
 		end
 		puts "What do you think of Star Trek?"
 		puts "	1. It's not just a TV show, it's a religion. I know all about warp field dynamics and the principles behind the transporter. I have memorized the TECH manual. I speak Klingon. I go to cons with Vulcan ears on. I have no life.
@@ -786,7 +811,8 @@ module BensSillyModule
 	5. Maybe it is just me, but I have no idea what the big deal with Star Trek is. Perhaps I'm missing something but I just think it is bad drama.
 	6. Star Trek is just another Space Opera. William Shatner isn't an actor, he's a poser! And what's with this Jean-Luc Picard? A Frenchman with a British accent? Come on. Isn't Voyager just a rehash of Lost in Space? Has Sisko even breathed in the last two seasons? Come on. I'd only watch this show if my remote control broke.
 	7. Star Trek SUCKS! It is the worst crap I have ever seen! Hey, all you trekkies out there, GET A LIFE! (William Shatner is in this category)
-	8. I identify with Barclay, the greatest of the Trek Geeks."
+	8. I identify with Barclay, the greatest of the Trek Geeks.
+	9. I don't watch or have an opinion on Star Trek."
 		num = gets.chomp.to_i
 		twentysecond = case num
 		when 1 then "t+++"
@@ -797,6 +823,7 @@ module BensSillyModule
 		when 6 then "t--"
 		when 7 then "t---"
 		when 8 then "t*"
+		when 9 then "t?"
 		end
 		puts "What do you think of Babylon 5?"
 		puts "	1. I am J. Michael Straczynski.
@@ -805,7 +832,8 @@ module BensSillyModule
 	4. Babylon 5 certainly presents a fresh perspective in the Sci-Fi universe. I watch it weekly.
 	5. I've seen it, I am pretty indifferent to it.
 	6. The show is sub-par. The acting is wooden, the special effects are obviously poor quality. In general, it seems like a very cheap Star Trek ripoff.
-	7. You call this Sci-Fi? That is such a load of crap! This show is just a soap with bad actors, piss-poor effects, and lame storylines. Puh-leese."
+	7. You call this Sci-Fi? That is such a load of crap! This show is just a soap with bad actors, piss-poor effects, and lame storylines. Puh-leese.
+	8. I don't watch or have an opinion on Babylon 5."
 		num = gets.chomp.to_i
 		twentythird = case num
 		when 1 then "5++++"
@@ -815,6 +843,7 @@ module BensSillyModule
 		when 5 then "5"
 		when 6 then "5-"
 		when 7 then "5--"
+		when 8 then "5?"
 		end
 		puts "What do you think of The X-Files?"
 		puts "	1. I am Chris Carter.
@@ -823,7 +852,8 @@ module BensSillyModule
 	4. I've Converted my family and watch the show when I remember. It's really kinda fun.
 	5. Ho hum. Just another Fox show.
 	6. It's ok if you like paranoia and conspiracy stories, but, let's face it, it's crap.
-	7. If I wanted to watch this kind of stuff, I'd talk to Oliver Stone."
+	7. If I wanted to watch this kind of stuff, I'd talk to Oliver Stone.
+	8. I don't watch or have an opinion on The X-Files."
 		num = gets.chomp.to_i
 		twentyfourth = case num
 		when 1 then "X++++"
@@ -833,6 +863,7 @@ module BensSillyModule
 		when 5 then "X"
 		when 6 then "X-"
 		when 7 then "X--"
+		when 8 then "X?"
 		end
 		puts "How much are you into Role-Playing?"
 		puts "	1. I've written and published my own gaming materials.
@@ -842,7 +873,8 @@ module BensSillyModule
 	5. Gosh, what an utter waste of time!
 	6. Role-Players are instruments of pure evil.
 	7. I work for T$R.
-	8. I thought life WAS role-playing?"
+	8. I thought life WAS role-playing?
+	9. I've never role-played, nor do I have an opinion on role-playing."
 		num = gets.chomp.to_i
 		twentyfifth = case num
 		when 1 then "R+++"
@@ -853,6 +885,7 @@ module BensSillyModule
 		when 6 then "R--"
 		when 7 then "R---"
 		when 8 then "R*"
+		when 9 then "R?"
 		end
 		puts "How often do you watch television?"
 		puts "	1. There's nothing I can experience \"out there\" that I can't see coming over my satellite dish. I wish there were MORE channels. I live for the O.J. Trial.
@@ -921,7 +954,8 @@ module BensSillyModule
 	6. I've played the game and really didn't think it was all that impressive.
 	7. It's an overy-violent game and pure crap.
 	8. To hell with Doom, I miss Zork.
-	9. Ive seen better on my Atari 2600."
+	9. Ive seen better on my Atari 2600.
+	10. I've never played DOOM, nor have an opinion on it."
 		num = gets.chomp.to_i
 		twentyninth = case num
 		when 1 then "D++++"
@@ -933,6 +967,7 @@ module BensSillyModule
 		when 7 then "D--"
 		when 8 then "D---"
 		when 9 then "D----"
+		when 10 then "D?"
 		end
 		puts "How well are you versed in The Geek Code?"
 		puts "	1. I am Robert Hayden.
@@ -998,7 +1033,7 @@ module BensSillyModule
 		when 8 then "h!"
 		when 9 then "h*"
 		end
-		puts "What's your relationship status?"
+		puts "What is your relationship status?"
 		puts "	1. Found someone, dated, and am now married.
 	2. I've dated my current S.O. for a long time.
 	3. I date frequently, bouncing from one relationship to another.
@@ -1028,8 +1063,8 @@ module BensSillyModule
 	3. Prefer not to state"
 		num = gets.chomp.to_i
 		gend = case num
-		when 1 then "m"
-		when 2 then "f"
+		when 1 then "x"
+		when 2 then "y"
 		when 3 then "z"
 		end
 		puts "And finally, what is your sex life like?" # I debated permitting this. It was in the original Geek Code, so I have to leave it in, but I don't have to like it. When I end up making Geek Code v4 I'll neglect to leave that category in.
@@ -1070,91 +1105,588 @@ module BensSillyModule
 		puts "Version: 3.12"
 		puts first + " " + second + " " + third + " " + fourth + " " + fifth + " " + sixth + seventh + " " + eighth + " " + ninth + " " + tenth + " " + eleventh + " " + twelfth + " " + thirteenth + " " + fourteenth + " " + fifteenth + " " + sixteenth + " " + seventeenth + " " + eighteenth + " " + nineteenth + " " + twentieth + " " + twentyfirst + " " + twentysecond + " " + twentythird + " " + twentyfourth + " " + twentyfifth + " " + twentysixth + " " + twentyseventh + " " + twentyeighth + " " + twentyninth + " " + thirtieth + " " + thirtyfirst + " " + thirtysecond + " " + thirtythird + " " + thirtyfourth
 		puts "------END GEEK CODE BLOCK------"
-end
-# To do: add method to translate geek code version 3.12 into legible format
-# To do: access a dictionary in Ruby to make an indie band name generator
-# To do: make a method comparing your complete genome to that of Kevin Bacon
-# Idea: Relative war timer, prints out when every important war would begin if it ended today, and when it would end if it began today
-end
-class Geek
-	def initialize(name, age, height_in_meters, weight_in_kilos, birthplace, username, favorite_trek_captain, favorite_doctor, favorite_show, favorite_language, gender="male", living_with_parents = true, job = nil)
-		@name = name
-		@age = age
-		@height_in_meters = height_in_meters
-		@weight_in_kilos = weight_in_kilos
-		@birthplace = birthplace
-		@username = username
-		@favorite_trek_captain = favorite_trek_captain
-		@favorite_doctor = favorite_doctor
-		@favorite_show = favorite_show
-		@gender = gender
-		@living_with_parents = living_with_parents
-		@job = job
 	end
-	def name
-		@name
+	def BensSillyModule.decode_geek_code(code) #Because of the below line, this document is wider than it is tall.
+		prompts = ["What kind of geek are you?","Do you have a second area of expertise?","What is it?","How do you dress?","How tall are you?","How large are you?","How old are you?","How are you with computers?","What Unix-based operating system do you use?","How good are you at Unix?","What do you think of Perl?","How good are you at Linux?","What do you think of GNU Emacs?","How much do you use the World Wide Web?","Do you use USENET News?","What is your relation to USENET Oracle?","What is your relation to Kibo?","What do you think of Windows?","What do you think of OS/2?","How do you feel about the Macintosh?","How do you feel about VMS?","Where do you land on the political and social issues sliding scale?","What are your thoughts on politics and economics?","How much of a cypherpunk are you?","What is your experience with Pretty Good Privacy?","What do you think of Star Trek?","What do you think of Babylon 5?","What do you think of The X-Files?","How much are you into Role-Playing?","How often do you watch television?","How many books do you read?","What do you think of Dilbert?","What do you think of DOOM?","How well are you versed in The Geek Code?","How much education do you have?","Describe your housing situation.","What is your relationship status?","What is your gender?","What is your sex life like?"]
+		parts = code.split
+		expertise = parts[0]
+		oneth = expertise.split("/")
+		stat = case oneth[0] # Thankfully this is the most difficult of these decoding segments, so I'm getting it out of the way first. At least I don't have to make a billion puts statements this time around. Oh wait.
+		when "GB" then "Geek of Business"
+		when "GC" then "Geek of Classics"
+		when "GCA" then "Geek of Commercial Arts"
+		when "GCM" then "Geek of Computer Management"
+		when "GCS" then "Geek of Computer Science"
+		when "GCC" then "Geek of Comunications"
+		when "GE" then "Geek of Engineering"
+		when "GED" then "Geek of Education"
+		when "GFA" then "Geek of Fine Arts"
+		when "GG" then "Geek of Government"
+		when "GH" then "Geek of Humanities"
+		when "GIT" then "Geek of Information Technology"
+		when "GJ" then "Geek of Jurisprudence"
+		when "GLS" then "Geek of Library Science"
+		when "GL" then "Geek of Literature"
+		when "GMC" then "Geek of Mass Communications"
+		when "GM" then "Geek of Math"
+		when "GMD" then "Geek of Medicine"
+		when "GMU" then "Geek of Music"
+		when "GPA" then "Geek of Performing Arts"
+		when "GP" then "Geek of Philosophy"
+		when "GS" then "Geek of Science"
+		when "GSS" then "Geek of Social Science"
+		when "GTW" then "Geek of Technical Writing"
+		when "GO" then "Geek of Other"
+		when "GU" then "Geek of Undecided"
+		when "G!" then "Geek of no qualifications"
+		when "GAT" then "Geek of All Trades"
+		else "[RESPONSE UNRECOGNIZED]"
+		end
+		puts prompts[0] # Specialty
+		puts stat
+		puts prompts[1] # Do You Have Another Specialty
+		if oneth[1]
+			firsttwo = case oneth[1]
+			when "B" then "Geek of Business"
+			when "C" then "Geek of Classics"
+			when "CA" then "Geek of Commercial Arts"
+			when "CM" then "Geek of Computer Management"
+			when "CS" then "Geek of Computer Science"
+			when "CC" then "Geek of Comunications"
+			when "E" then "Geek of Engineering"
+			when "ED" then "Geek of Education"
+			when "FA" then "Geek of Fine Arts"
+			when "G" then "Geek of Government"
+			when "H" then "Geek of Humanities"
+			when "IT" then "Geek of Information Technology"
+			when "J" then "Geek of Jurisprudence"
+			when "LS" then "Geek of Library Science"
+			when "L" then "Geek of Literature"
+			when "MC" then "Geek of Mass Communications"
+			when "M" then "Geek of Math"
+			when "MD" then "Geek of Medicine"
+			when "MU" then "Geek of Music"
+			when "PA" then "Geek of Performing Arts"
+			when "P" then "Geek of Philosophy"
+			when "S" then "Geek of Science"
+			when "SS" then "Geek of Social Science"
+			when "TW" then "Geek of Technical Writing"
+			when "O" then "Geek of Other"
+			when "U" then "Geek of Undecided"
+			when "!" then "Geek of no qualifications"
+			when "AT" then "Geek of All Trades"
+			else "[RESPONSE UNRECOGNIZED]"
+			end
+			puts "Yes"
+			puts prompts[2] # Other Specialty
+			puts firsttwo
+		else
+			puts "No"
+		end
+		puts prompts[3] # Dress Code
+		dress = parts[1]
+		stat = case dress
+		when "d++" then "I tend to wear conservative dress such as a business suit or worse, a tie."
+		when "d+" then "Good leisure-wear. Slacks, button-shirt, etc. No jeans, tennis shoes, or t-shirts."
+		when "d" then "I dress a lot like those found in catalog ads. Bland, boring, without life or meaning."
+		when "d-" then "I'm usually in jeans and a t-shirt."
+		when "d--" then "My t-shirts go a step further and have a trendy political message on them."
+		when "d---" then "Punk dresser, including, but not limited to, torn jeans and shirts, body piercings, and prominent tattoos."
+		when "dx" then "Cross Dresser"
+		when "d?" then "I have no idea what I am wearing right now, let alone what I wore yesterday."
+		when "!d" then "No clothing. Quite a fashion statement, don't you think?"
+		when "dpu" then "I wear the same clothes all the time, no matter the occasion, forgetting to do laundry between wearings."
+		else "[RESPONSE UNRECOGNIZED]"
+		end
+		puts stat
+		puts prompts[4] # Vertical Size
+		twopart = parts[2] + "j" # Adding "j" to the end so I don't get a nil result in the second part of this
+		sizearray = twopart.split(":")
+		stat = case sizearray[0]
+		when "s+++" then "I usually have to duck through doors."
+		when "s++" then "I'm a basketball candidate."
+		when "s+" then "I'm a little taller than most."
+		when "s" then "I'm an average geek."
+		when "s-" then "I look up to most people."
+		when "s--" then "I look up to damn near everybody."
+		when "s---" then "I take a phone book with me when I go out so I can see to eat dinner."
+		else "[RESPONSE UNRECOGNIZED]"
+		end
+		puts stat
+		puts prompts[5] # Horizontal Size
+		stat = case sizearray[1]
+		when "+++j" then "I take up three movie seats."
+		when "++j" then "I'm a linebacker candidate."
+		when "+j" then "I'm a little rounder than most."
+		when "j" then "I'm an average geek."
+		when "-j" then "Everyone tells me to gain a few pounds."
+		when "--j" then "I tend to have to fight against a strong breeze."
+		when "---j" then "My bones are poking through my skin."
+		else "[RESPONSE UNRECOGNIZED]"
+		end
+		puts stat
+		puts prompts[6] # Age
+		if (parts[3].include? "1")||(parts[3].include? "2")||(parts[3].include? "3")||(parts[3].include? "4")||(parts[3].include? "5")||(parts[3].include? "6")||(parts[3].include? "7")||(parts[3].include? "8")||(parts[3].include? "9") # Going to have to find a way to shorten this
+			stat = parts[3].gsub(/a/, '')
+		else
+			stat = case parts[3]
+			when "a+++" then "60 or older."
+			when "a++" then "Between 50 and 59."
+			when "a+" then "Between 40 and 49."
+			when "a" then "Between 30 and 39."
+			when "a-" then "Between 25 and 29."
+			when "a--" then "Between 20 and 24."
+			when "a---" then "Between 15 and 19."
+			when "a----" then "Between 10 and 14."
+			when "a-----" then "9 or younger."
+			when "a?" then "Immortal."
+			when "!a" then "It's none of your business how old I am."
+			else "[RESPONSE UNRECOGNIZED]"
+			end
+		end
+		puts stat
+		puts prompts[7] # Computers
+		stat = case parts[4]
+		when "C++++" then "I'll be first in line to get the new cybernetic interface installed into my skull."
+		when "C+++" then "You mean there is life outside of Internet? You're shittin' me! I haven't dragged myself to class in weeks."
+		when "C++" then "Computers are a large part of my existence. When I get up in the morning, the first thing I do is log myself in. I play games or mud on weekends, but still manage to stay off of academic probation."
+		when "C+" then "Computers are fun and I enjoy using them. I play a mean game of DOOM! and can use a word processor without resorting to the manual too often. I know that a 3.5\" disk is not a hard disk. I also know that when it says 'press any key to continue', I don't have to look for a key labeled 'ANY'."
+		when "C" then "Computers are a tool, nothing more. I use it when it serves my purpose."
+		when "C-" then "Anything more complicated than my calculator and I'm screwed."
+		when "C--" then "Where's the on switch?"
+		when "C---" then "If you even mention computers, I will rip your head off!"
+		else "[RESPONSE UNRECOGNIZED]"
+		end
+		puts stat
+		puts prompts[8] # What Unix Distro
+		unrat = parts[5] # 'unrat' = 'Unix Rating'
+		stat = case unrat[1]
+		when "B" then "BSD"
+		when "L" then "Linux"
+		when "U" then "Ultrix"
+		when "A" then "AIX"
+		when "V" then "SysV"
+		when "H" then "HPUX"
+		when "I" then "IRIX"
+		when "O" then "OSF/1"
+		when "S" then "Sun OS/Solaris"
+		when "C" then "SCO Unix"
+		when "X" then "NeXT"
+		when "*" then "Other"
+		else "[RESPONSE UNRECOGNIZED]"
+		end
+		puts stat
+		puts prompts[9] # How Good at Unix
+		urat = unrat.gsub(/[BLAVHIOSCX*]/, 'U') # 'urat' = 'I couldn\'t think of another variable'
+		stat = case urat
+		when "UU++++" then "I am the sysadmin. If you try and crack my machine don't be surprised if the municipal works department gets an \"accidental\" computer-generated order to put start a new landfill on your front lawn or your quota is reduced to 4K."
+		when "UU+++" then "I don't need to crack /etc/passwd because I just modified su so that it doesn't prompt me. The admin staff doesn't even know I'm here. If you don't understand what I just said, this category does NOT apply to you!"
+		when "UU++" then "I've get the entire admin ticked off at me because I am always using all of the CPU time and trying to run programs that I don't have access to. I'm going to try cracking /etc/passwd next week, just don't tell anyone."
+		when "UU+" then "I not only have a Unix account, but I slam VMS any chance get."
+		when "UU" then "I have a Unix account to do my stuff in."
+		when "UU-" then "I have a VMS account."
+		when "UU--" then "I've seen Unix and didn't like it. DEC rules!"
+		when "UU---" then "Unix geeks are actually nerds in disguise."
+		when "!U" then "I don't use Unix."
+		else "[RESPONSE UNRECOGNIZED]"
+		end
+		puts stat
+		if (urat.include? "U++")
+			puts prompts[10] # Perl Status
+			stat = case parts[6]
+			when "P+++++" then "I am Larry Wall, Tom Christiansen, or Randal Schwartz."
+			when "P++++" then "I don't write Perl, I speak it. Perl has superseded all other programming languages. I firmly believe that all programs can be reduced to a Perl one-liner."
+			when "P+++" then "Perl is a very powerful programming tool. Not only do I no longer write shell scripts, I also no longer use awk or sed. I use Perl for all programs of less than a thousand lines."
+			when "P++" then "Perl is a powerful programming tool. I don't write shell scripts anymore because I write them in Perl."
+			when "P+" then "I know of Perl. I like Perl. I just haven't learned much Perl, but it is on my agenda."
+			when "P" then "I know Perl exists, but that's all."
+			when "P-" then "What's Perl got that awk and sed don't have?"
+			when "P--" then "Perl users are sick, twisted programmers who are just showing off."
+			when "P---" then "Perl combines the power of sh, the clarity of sed, and the performance of awk with the simplicity of C. It should be banned."
+			when "P!" then "Our paranoid admin won't let us install Perl! Says it's a \"hacking tool\"."
+			else "[RESPONSE UNRECOGNIZED]"
+			end
+			puts stat
+			perat = parts[6] # Deletion was necessary so the next case statement can use the number "parts[6]" in case this doesn't exist in the user's code
+			parts.delete(perat) # Needs fixing
+		end
+		puts prompts[11] # Linux Rating
+		stat = case parts[6]
+		when "L+++++" then "I am Linus, grovel before me."
+		when "L++++" then "I am a Linux wizard. I munch C code for breakfast and have enough room left over for a kernel debugging. I have so many patches installed that I lost track about ten versions ago. Linux newbies consider me a net.god."
+		when "L+++" then "I use Linux exclusively on my system. I monitor comp.os.linux.* and even answer questions sometimes."
+		when "L++" then "I use Linux ALMOST exclusively on my system. I've given up trying to achieve Linux.God status, but welcome the OS as a replacement for DOS. I only boot to DOS to play games."
+		when "L+" then "I've managed to get Linux installed and even used it a few times. It seems like it is just another OS."
+		when "L" then "I know what Linux is, but that's about all."
+		when "L-" then "I have no desire to use Linux and frankly don't give a rats patootie about it. There are other, better, operating systems out there. Like Mac, DOS, or Amiga-OS. Or, better yet even, would be another free Unix OS like FreeBSD."
+		when "L--" then "Unix sucks. Because Linux = Unix. Linux Sucks. I worship Bill Gates."
+		when "L---" then "I am Bill Gates."
+		when "!L" then "I don't use Linux."
+		else "[RESPONSE UNRECOGNIZED]"
+		end
+		puts stat
+		puts prompts[12] # GNU Emacs
+		stat = case parts[7]
+		when "E+++" then "Emacs is my login shell!! M-x doctor is my psychologist! I use emacs to control my TV and toaster oven! All you vi people don't know what you're missing! I read alt.religion.emacs, alt.sex.emacs, and comp.os.emacs."
+		when "E++" then "I know and use elisp regularly!"
+		when "E+" then "Emacs is great! I read my mail and news with it!"
+		when "E" then "Yeah, I know what emacs is, and use it as my regular editor."
+		when "E-" then "Emacs is too big and bloated for my tastes."
+		when "E--" then "Emacs is just a fancy word processor."
+		when "E---" then "Emacs sucks! vi forever!!!"
+		when "E----" then "Emacs sucks! pico forever"
+		when "E?" then "I don't use or have an opinion on GNU Emacs."
+		else "[RESPONSE UNRECOGNIZED]"
+		end
+		puts stat
+		puts prompts[13] # World Wide Web
+		stat = case parts[8]
+		when "W+++" then "I am a WebMaster. Don't even think about trying to view my homepage without the latest version of Netscape. When I'm not on my normal net connection, I surf the web using my Newton and a cellular modem."
+		when "W++" then "I have a homepage. I surf daily. My homepage is advertised in my .signature."
+		when "W+" then "I have the latest version of Netscape, and wander the web only when there's something specific I'm looking for."
+		when "W" then "I have a browser and a connection. Occasionally I'll use them."
+		when "W-" then "The web is really a pain. Life was so much easier when you could transfer information by simple ASCII. Now everyone won't even consider your ideas unless you spiff them up with bandwidth-consuming pictures and pointless information links."
+		when "W--" then "A pox on the Web! It wastes time and bandwidth and just gives the uneducated morons a reason to clutter the Internet."
+		when "!W" then "I don't use the web."
+		else "[RESPONSE UNRECOGNIZED]"
+		end
+		puts stat
+		puts prompts[14] # USENET News
+		stat = case parts[9]
+		when "N++++" then "I am Tim Pierce."
+		when "N+++" then "I read so many newsgroups that the next batch of news comes in before I finish reading the last batch, and I have to read for about 2 hours straight before I'm caught up on the morning's news. Then there's the afternoon..."
+		when "N++" then "I read all the news in a select handful of groups."
+		when "N+" then "I read news recreationally when I have some time to kill."
+		when "N" then "Usenet News? Sure, I read that once."
+		when "N-" then "News is a waste of my time and I avoid it completely."
+		when "N--" then "News sucks! 'Nuff said."
+		when "N---" then "I work for Time Magazine."
+		when "N----" then "I am a Scientologist."
+		when "N*" then "All I do is read news."
+		when "N?" then "I don't use or have an opinion on USENET News."
+		else "[RESPONSE UNRECOGNIZED]"
+		end
+		puts stat
+		puts prompts[15] # USENET Oracle
+		stat = case parts[10]
+		when "o+++++" then "I am Steve Kinzler."
+		when "o++++" then "I am an active Priest."
+		when "o+++" then "I was a Priest, but have retired."
+		when "o++" then "I have made the Best Of Oracularities."
+		when "o+" then "I have been incarnated at least once."
+		when "o" then "I've submitted a question, but it has never been incarnated."
+		when "o-" then "I sent my question to the wrong group and got flamed."
+		when "o--" then "Who needs answers from a bunch of geeks anyhow?"
+		when "o?" then "I don't use or have an opinion on USENET Oracle."
+		else "[RESPONSE UNRECOGNIZED]"
+		end
+		puts stat
+		puts prompts[16] # Kibo
+		stat = case parts[11]
+		when "K++++++" then "I am Kibo."
+		when "K+++++" then "I've had sex with Kibo."
+		when "K++++" then "I've met Kibo."
+		when "K+++" then "I've gotten mail from Kibo."
+		when "K++" then "I've read Kibo."
+		when "K+" then "I like Kibo."
+		when "K" then "I know who Kibo is."
+		when "K-" then "I don't know who Kibo is."
+		when "K--" then "I dislike Kibo."
+		when "K---" then "I am currently hunting Kibo down with the intent of ripping his still-beating heart out of his chest and showing it to him as he dies."
+		when "K----" then "I am Xibo."
+		else "[RESPONSE UNRECOGNIZED]"
+		end
+		puts stat
+		puts prompts[17] # Windows
+		stat = case parts[12]
+		when "w+++++" then "I am Bill Gates."
+		when "w++++" then "I have Windows, Windows 95, Windows NT, and Windows NT Advanced Server all running on my SMP RISC machine. I haven't seen daylight in six months."
+		when "w+++" then "I am a MS Windows programming god. I wrote a VxD driver to allow MS Windows and DOS to share the use of my waffle iron. P.S. Unix sux."
+		when "w++" then "I write MS Windows programs in C and think about using C++ someday. I've written at least one DLL."
+		when "w+" then "I have installed my own custom sounds, wallpaper, and screen savers so my PC walks and talks like a fun house. Oh yeah, I have a hundred TrueType(tm) fonts that I've installed but never used. I never lose Minesweeper and Solitaire."
+		when "w" then "Ok, so I use MS Windows, I don't have to like it."
+		when "w-" then "I'm still trying to install MS Windows and have at least one peripheral that never works right."
+		when "w--" then "MS Windows is a joke operating system. Hell, it's not even an operating system. NT is Not Tough enough for me either. 95 is how may times it will crash an hour."
+		when "w---" then "Windows has set back the computing industry by at least 10 years. Bill Gates should be drawn, quartered, hung, shot, poisoned, disembowelled, and then REALLY hurt."
+		when "w?" then "I don't use or have an opinion on Windows."
+		else "[RESPONSE UNRECOGNIZED]"
+		end
+		puts stat
+		puts prompts[18] # OS/2
+		stat = case parts[13]
+		when "O+++" then "I live, eat and breathe OS/2. All of my hard drives are HPFS. I am the Anti-Gates."
+		when "O++" then "I use OS/2 for all my computing needs. I use some DOS and Windows programs, but run them under OS/2. If the program won't run under OS/2, then obviously I don't need it."
+		when "O+" then "I keep a DOS partition on my hard drive \"just in case\". I'm afraid to try HPFS."
+		when "O" then "I finally managed to get OS/2 installed but wasn't too terribly impressed."
+		when "O-" then "Tried it, didn't like it."
+		when "O--" then "I can't even get the thing to install!"
+		when "O---" then "Windows RULES!!! Long live Bill Gates."
+		when "O----" then "I am Bill Gates of Borg. OS/2 is irrelevant."
+		when "O?" then "I don't use or have an opinion on OS/2."
+		else "[RESPONSE UNRECOGNIZED]"
+		end
+		puts stat
+		puts prompts[19] # Macintosh, which is incidently what this code is being written on
+		stat = case parts[14]
+		when "M++" then "I am a Mac guru. Anything those DOS putzes and Unix nerds can do, I can do better, and if not, I'll write the damn software to do it."
+		when "M+" then "A Mac has it's uses and I use it quite often."
+		when "M" then "I use a Mac, but I'm pretty indifferent about it."
+		when "M-" then "Macs suck. All real geeks have a character prompt."
+		when "M--" then "Macs do more than suck. They make a user stupid by allowing them to use the system without knowing what they are doing. Mac weenies have lower IQs than the fuzz in my navel."
+		when "M?" then "I don't use or have an opinion on Macintoshes."
+		else "[RESPONSE UNRECOGNIZED]"
+		end
+		puts stat
+		puts prompts[20] # VMS
+		stat = case parts[15]
+		when "V+++" then "I am a VMS sysadmin. I wield far more power than those UNIX admins, because UNIX can be found on any dweeb's desktop. Power through obscurity is my motto."
+		when "V++" then "Unix is a passing fad compared to the real power in the universe, my VMS system."
+		when "V+" then "I tend to like VMS better than Unix."
+		when "V" then "I've used VMS."
+		when "V-" then "Unix is much better than VMS for my computing needs."
+		when "V--" then "I would rather smash my head repeatedly into a brick wall than suffer the agony of working with VMS. It's reminiscent of a dead and decaying pile of moose droppings. Unix rules the universe."
+		when "V?" then "I don't use or have an opinion on VMS."
+		else "[RESPONSE UNRECOGNIZED]"
+		end
+		puts stat
+		puts prompts[21] # Political and Social Issues
+		stat = case parts[16]
+		when "PS+++" then "Legalize drugs! Abolish the government. \"Fuck the draft!\""
+		when "PS++" then "I give to liberal causes. I march for gay rights. I'm a card carrying member of the ACLU. Keep abortion safe and legal."
+		when "PS+" then "My whole concept of liberalism is that nobody has the right to tell anybody else what to do, on either side of the political fence. If you don't like it, turn the bloody channel."
+		when "PS" then "I really don't have an opinion; nobody's messing with my freedoms right now."
+		when "PS-" then "Label records! Keep dirty stuff off TV and the Internet."
+		when "PS--" then "Oppose sex education, abortion rights, gay rights. Rush Limbaugh is my spokesman."
+		when "PS---" then "Repent left-wing sinners and change your wicked evil ways. Buchanan/Robertson in '96."
+		else "[RESPONSE UNRECOGNIZED]"
+		end
+		puts stat
+		puts prompts[22] # Political and Economic Issues
+		stat = case parts[17]
+		when "PE+++" then "Abolish antitrust legislation. Raise taxes on everyone but the rich so that the money can trickle-down to the masses."
+		when "PE++" then "Keep the government off the backs of businesses. Deregulate as much as possible."
+		when "PE+" then "Balance the budget with spending cuts and an amendment."
+		when "PE" then "Distrust both government and business."
+		when "PE-" then "It's ok to increase government spending, so we can help more poor people. Tax the rich! Cut the defense budget!"
+		when "PE--" then "Capitalism is evil! Government should provide the services we really need. Nobody should be rich."
+		else "[RESPONSE UNRECOGNIZED]"
+		end
+		puts stat
+		puts prompts[23] # Cypherpunks
+		stat = case parts[18]
+		when "Y+++" then "I am T.C. May."
+		when "Y++" then "I am on the cypherpunks mailing list and active around Usenet. I never miss an opportunity to talk about the evils of Clipper and ITAR and the NSA. Orwell's 1984 is more than a story, it is a warning to our's and future generations. I'm a member of the EFF."
+		when "Y+" then "I have an inerest and concern in privacy issues, but in reality I am not really all that active or vocal."
+		when "Y" then "I'm pretty indifferent on the whole issue."
+		when "Y-" then "It seems to me that all of these concerns are a little extreme. I mean, the government must be able to protect itself from criminals and the populace from indecent speech."
+		when "Y--" then "Get a life. The only people that need this kind of protection are people with something to hide. I think cypherpunks are just a little paranoid."
+		when "Y---" then "I am L. Detweiler."
+		else "[RESPONSE UNRECOGNIZED]"
+		end
+		puts stat
+		puts prompts[24] # PGP
+		stat = case parts[19]
+		when "PGP++++" then "I am Phillip Zimmerman"
+		when "PGP+++" then "I don't send or answer mail that is not encrypted, or at the very least signed. If you are reading this without decrypting it first, something is wrong. IT DIDN'T COME FROM ME!"
+		when "PGP++" then "I have the most recent version and use it regularly."
+		when "PGP+" then "Finger me for my public key."
+		when "PGP" then "I've used it, but stopped long ago."
+		when "PGP-" then "I don't have anything to hide."
+		when "PGP--" then "I feel that the glory of the Internet is in the anarchic, trusting environment that so nurtures the exchange of information. Encryption just bogs that down."
+		when "PGP---" then "If you support encryption on the Internet, you must be a drug dealer or terrorist or something like that."
+		when "PGP----" then "Oh, here is something you all can use that is better (insert Clipper here)."
+		when "PGP?" then "I've never used Pretty Good Privacy nor have an opinion on encryption."
+		else "[RESPONSE UNRECOGNIZED]"
+		end
+		puts stat
+		puts prompts[25] # Star Trek
+		stat = case parts[20]
+		when "t+++" then "It's not just a TV show, it's a religion. I know all about warp field dynamics and the principles behind the transporter. I have memorized the TECH manual. I speak Klingon. I go to cons with Vulcan ears on. I have no life."
+		when "t++" then "It's the best show around. I have all the episodes and the movies on tape and can quote entire scenes verbatim. I've built a few of the model kits too. But you'll never catch me at one of those conventions. Those people are kooks."
+		when "t+" then "It's a damn fine TV show and is one of the only things good on television any more."
+		when "t" then "It's just another TV show."
+		when "t-" then "Maybe it is just me, but I have no idea what the big deal with Star Trek is. Perhaps I'm missing something but I just think it is bad drama."
+		when "t--" then "Star Trek is just another Space Opera. William Shatner isn't an actor, he's a poser! And what's with this Jean-Luc Picard? A Frenchman with a British accent? Come on. Isn't Voyager just a rehash of Lost in Space? Has Sisko even breathed in the last two seasons? Come on. I'd only watch this show if my remote control broke."
+		when "t---" then "Star Trek SUCKS! It is the worst crap I have ever seen! Hey, all you trekkies out there, GET A LIFE!"
+		when "t*" then "I identify with Barclay, the greatest of the Trek Geeks."
+		when "t?" then "I don't watch or have an opinion on Star Trek."
+		else "[RESPONSE UNRECOGNIZED]"
+		end
+		puts stat
+		puts prompts[26] # Babylon 5
+		stat = case parts[21]
+		when "5++++" then "I am J. Michael Straczynski."
+		when "5+++" then "I am a True Worshipper of the Church of Joe who lives eats breathes and thinks Babylon 5, and has Evil thoughts about stealing Joe's videotape archives just to see episodes earlier. I am planning to break into the bank and steal the triple-encoded synopsis of the 5-year arc."
+		when "5++" then "Finally a show that shows what a real future would look like. None of this Picardian \"Let's talk about it and be friends\" crap. And what's this? We finally get to see a bathroom! Over on that Enterprise, they've been holding it for over seven years!"
+		when "5+" then "Babylon 5 certainly presents a fresh perspective in the Sci-Fi universe. I watch it weekly."
+		when "5" then "I've seen it, I am pretty indifferent to it."
+		when "5-" then "This show is sub-par. The acting is wooden, the special effects are obviously poor quality. In general, it seems like a very cheap Star Trek ripoff."
+		when "5--" then "You call this Sci-Fi? That is such a load of crap! This show is just a soap with bad actors, piss-poor effects, and lame storylines. Puh-leese."
+		when "5?" then "I don't watch or have an opinion on Babylon 5."
+		end
+		puts stat
+		puts prompts[27] # X-Files
+		stat = case parts[22]
+		when "X++++" then "I am Chris Carter."
+		when "X+++" then "This is the BEST show on TV, and it's about time. I've seen everything David Duchovny and Gillian Anderson have ever done that been recorded and I'm a loyal Duchovny/ Gillian Anderson fan. I've Converted at least 10 people. I have every episode at SP, debate the fine details on-line, and have a credit for at least 2 YAXAs."
+		when "X++" then "This is one of the better shows I've seen. I wish I'd taped everything from the start at SP, because I'm wearing out my EP tapes. I'll periodically debate online. I've Converted at least 5 people. I've gotten a YAXA."
+		when "X+" then "I've Converted my family and watch the show when I remember. It's really kinda fun."
+		when "X" then "Ho hum. Just another Fox show."
+		when "X-" then "It's ok if you like paranoia and conspiracy stories, but, let's face it, it's crap."
+		when "X--" then "If I wanted to watch this kind of stuff, I'd talk to Oliver Stone."
+		when "X?" then "I don't watch or have an opinion on The X-Files."
+		else "[RESPONSE UNRECOGNIZED]"
+		end
+		puts stat
+		puts prompts[28] # Role Playing
+		stat = case parts[23]
+		when "R+++" then "I've written and published my own gaming materials."
+		when "R++" then "There is no life outside the role of the die. I know all of piddly rules of (chosen game). _MY_ own warped rules scare the rest of the players."
+		when "R+" then "I've got my weekly sessions set up and a character that I know better than I know myself."
+		when "R" then "Role-Playing? That's just something to do to kill a Saturday afternoon."
+		when "R-" then "Gosh, what an utter waste of time!"
+		when "R--" then "Role-Players are instruments of pure evil."
+		when "R---" then "I work for T$R."
+		when "R*" then "I thought life WAS role-playing."
+		when "R?" then "I've never role-played, nor do I have an opinion on role-playing."
+		else "[RESPONSE UNRECOGNIZED]"
+		end
+		puts stat
+		puts prompts[29] # Television
+		stat = case parts[24]
+		when "tv+++" then "There's nothing I can experience \"out there\" that I can't see coming over my satellite dish. I wish there were MORE channels. I live for the O.J. Trial."
+		when "tv++" then "I just leave the tv on, to make sure I don't miss anything."
+		when "tv+" then "I watch some tv every day."
+		when "tv" then "I only watch shows that are actually worthwhile, such as those found on PBS."
+		when "tv-" then "I watch tv for the news and 'special programming.'"
+		when "tv--" then "I turn my tv on during natural disasters."
+		when "!tv" then "I do not own a television."
+		else "[RESPONSE UNRECOGNIZED]"
+		end
+		puts stat
+		puts prompts[30] # Books
+		stat = case parts[25]
+		when "b++++" then "I read a book a day. I have library cards in three states. I have discount cards from every major bookstore. I've ordered books from another country to get my Favorite Author Fix."
+		when "b+++" then "I consume a few books a week as part of a staple diet."
+		when "b++" then "I find the time to get through at least one new book a month."
+		when "b+" then "I enjoy reading, but don't get the time very often."
+		when "b" then "I read the newspaper and the occasional book."
+		when "b-" then "I read when there is no other way to get the information."
+		when "b--" then "I did not actually READ the geek code, I just had someone tell me."
+		else "[RESPONSE UNRECOGNIZED]"
+		end
+		puts stat
+		puts prompts[31] # Dilbert
+		stat = case parts[26]
+		when "DI+++++" then "I am Scott Adams."
+		when "DI++++" then "I've received mail from Scott Adams. I'm in the DNRC (Dogbert's New Ruling Class)."
+		when "DI+++" then "I am a Dilbert prototype."
+		when "DI++" then "I work with people that act a lot like Dilbert and his boss."
+		when "DI+" then "I read Dilbert daily, often understanding it."
+		when "DI" then "I read Dilbert infrequently, rarely understanding it."
+		when "DI-" then "Is that the comic about the engineers?"
+		when "DI--" then "Don't read it, but I think the dog is kinda cute."
+		when "DI---" then "I don't think it's funny to make fun of managers trying their best to run their organizational units."
+		else "[RESPONSE UNRECOGNIZED]"
+		end
+		puts stat
+		puts prompts[32] # DOOM!
+		stat = case parts[27]
+		when "D++++" then "I work for iD Software."
+		when "D+++" then "I crank out PWAD files daily, complete with new monsters, weaponry, sounds and maps. I'm a DOOM God. I can solve the original maps in nightmare mode with my eyes closed."
+		when "D++" then "I've played the shareware version and bought the real one and I'm actually pretty good at the game. I occasionally download PWAD files and play them too."
+		when "D+" then "It's a fun, action game that is a nice diversion on a lazy afternoon."
+		when "D" then "I've played the game and I'm pretty indifferent."
+		when "D-" then "I've played the game and really didn't think it was all that impressive."
+		when "D--" then "It's an overy-violent game and pure crap."
+		when "D?" then "I've never played DOOM, nor have an opinion on it."
+		else "[RESPONSE UNRECOGNIZED]"
+		end
+		puts stat
+		puts prompts[33] # The Geek Code
+		stat = case parts[28]
+		when "G+++++" then "I am Robert Hayden."
+		when "G++++" then "I have made a suggestion for future versions of the code."
+		when "G+++" then "I have memorized the entire geek code, and can decode others' codes in my head. I know by heart where to find the current version of the code on the net."
+		when "G++" then "I know what each letter means, but sometimes have to look up the specifics."
+		when "G+" then "I was once G++ (or higher), but the new versions are getting too long and too complicated."
+		when "G" then "I know what the geek code is and even did up this code."
+		when "G-" then "What a tremendous waste of time this Geek Code is."
+		when "G--" then "Not only a waste of time, but it obviously shows that this Hayden guy needs a life."
+		else "[RESPONSE UNRECOGNIZED]"
+		end
+		puts stat
+		puts prompts[34] # Education
+		stat = case parts[29]
+		when "e+++++" then "I am Stephen Hawking."
+		when "e++++" then "Managed to get my Ph.D."
+		when "e+++" then "Got a Masters degree."
+		when "e++" then "Got a Bachelors degree."
+		when "e+" then "Got an Associates degree."
+		when "e" then "Finished High School."
+		when "e-" then "Haven't finished High School."
+		when "e--" then "Haven't even entered High School."
+		when "e*" then "I learned everything there is to know about life from the \"Hitchhiker's Trilogy\"."
+		else "[RESPONSE UNRECOGNIZED]"
+		end
+		puts stat
+		puts prompts[35] # Housing
+		stat = case parts[30]
+		when "h++" then "Living in a cave with 47 computers and an Internet feed, located near a Dominoes pizza."
+		when "h+" then "Living alone, get out once a week to buy food, no more than once a month to do laundry. All surfaces covered."
+		when "h" then "Friends come over to visit every once in a while to talk about Geek things. There is a place for them to sit."
+		when "h-" then "Living with one or more registered Geeks."
+		when "h--" then "Living with one or more people who know nothing about being a Geek and refuse to watch Babylon 5."
+		when "h---" then "Married."
+		when "h----" then "Married with children."
+		when "h!" then "I am stuck living with my parents!"
+		when "h*" then "I'm not sure where I live anymore. This lab/workplace seems like home to me."
+		else "[RESPONSE UNRECOGNIZED]"
+		end
+		puts stat
+		puts prompts[36] # Relationship
+		stat = case parts[31]
+		when "r+++" then "Found someone, dated, and am now married."
+		when "r++" then "I've dated my current S.O. for a long time."
+		when "r+" then "I date frequently, bouncing from one relationship to another."
+		when "r" then "I date periodically."
+		when "r-" then "I have difficulty maintaining a relationship."
+		when "r--" then "People just aren't interested in dating me."
+		when "r---" then "I'm beginning to think that I'm a leper or something, the way people avoid me like the plague."
+		when "!r" then "I've never had a relationship."
+		when "r*" then "Member of the SBCA (Sour Bachelor(ette)'s Club of America)."
+		when "r%" then "I was going out with someone, but the asshole dumped me."
+		else "[RESPONSE UNRECOGNIZED]"
+		end
+		puts stat
+		puts prompts[37] # Gender
+		gen = parts[32]
+		stat = case gen[0]
+		when "x" then "Female."
+		when "y" then "Male."
+		when "z" then "Prefer not to state."
+		else "[RESPONSE UNRECOGNIZED]"
+		end
+		puts stat
+		puts prompts[38] # Sex Life
+		sl = gen.gsub(/[xy]/, 'z')
+		stat = case sl
+		when "z+++++" then "I am Madonna."
+		when "z++++" then "I have a few little rug rats to prove I've been there. Besides, with kids around, who has time for sex?"
+		when "z+++" then "I'm married, so I can get it (theoretically) whenever I want."
+		when "z++" then "I was once referred to as 'easy'. I have no idea where that might have come from though."
+		when "z+" then "I've had real, live sex."
+		when "z" then "I've had sex. Oh! You mean with someone else? Then no."
+		when "z-" then "Not having sex by choice."
+		when "z--" then "Not having sex because I just can't get any..."
+		when "z---" then "Not having sex because I'm a nun or a priest."
+		when "z*" then "I'm a pervert."
+		when "z**" then "I've been known to make perverts look like angels."
+		when "!z" then "Sex? What's that? I've had no sexual experiences."
+		when "z?" then "It's none of your business what my sex life is like."
+		when "!z+" then "Sex? What's that? No experience, willing to learn!"
+		else "[RESPONSE UNRECOGNIZED]"
+		end # That was long. Next thing to do is add options for wanting to change Geek status. Oh joy.
+		puts stat # Now that I've done all this, I bet you wonder what my Geek Code is. Here it is. GU d- s: a15 C++ UL L+ E? W++ N? o? K- w+ O? M+ V? PS-- PE++ Y+ PGP? t+ 5? X? R+ tv- b++ DI+ D++ G+++ e- h! !r y?
 	end
-	def set_name(name)
-		@name = name
-	end
-	def age
-		@age
-	end
-	def set_age(age)
-		@age = age
-	end
-	def height_in_meters
-		@height_in_meters
-	end
-	def set_height(height)
-		@height_in_meters = height
-	end
-	def weight_in_kilos
-		@weight_in_kilos
-	end
-	def set_weight(weight)
-		@weight_in_kilos = weight
-	end
-	def username
-		@username
-	end
-	def set_username(un)
-		@username = un
-	end
-	def favorite_trek_captain
-		@favorite_trek_captain
-	end
-	def set_favorite_captain(cap)
-		@favorite_trek_captain = cap
-	end
-	def favorite_doctor
-		@favorite_doctor
-	end
-	def set_fav_doctor(doc)
-		@favorite_doctor = doc
-	end
-	def favorite_show
-		@favorite_show
-	end
-	def set_favorite_show(show)
-		@favorite_show = show
-	end
-	def favorite_language
-		@favorite_language
-	end
-	def set_favorite_language(lang)
-		@favorite_language = lang
-	end
-	def living_status
-		@living_with_parents
-	end
-	def set_living_status(bool)
-		@living_with_parents = bool
-	end
-	def job
-		@job
-	end
-	def set_job(job)
-		@job = job
-	end
-end
+end # Idea: Relative war timer, prints out when every important war would begin if it ended today, and when it would end if it began today
