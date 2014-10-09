@@ -1,4 +1,5 @@
 #this is just a Ruby app to test my silly module. Created by Benjamin Rausch!
 $LOAD_PATH << '.'
 require 'BensSillyModule'
-puts BensSillyModule.generate_typical_username
+#BensSillyModule.decode_geek_code("GU d- s: a15 C++ UL L+ E? W++ N? o? K- w+ O? M+ V? PS-- PE++ Y+ PGP? t+ 5? X? R+ tv- b++ DI+ D++ G+++ e- h! !r y?")
+BensSillyModule.geek_code_new

@@ -211,7 +211,7 @@ module BensSillyModule
 		formula
 	end
 	def BensSillyModule.geek_code # The Geek Code is a cool string of numbers that told info about a user's fandoms and computer skills. Though it was mainly used in the late '90s, it pops up every now and again on forums, so I'm building a CLU to do it justice. This is the one of the only times that the phrase 'C++' isn't in reference to a language. This CLU uses http://www.geekcode.com/geek.html as the source for all its info, and uses Geek Code version 3.12 
-		puts "Welcome to the idiot-proof Geek Code 3.12 generator created and maintained by Ben R! Answer the following questions about your geekiness, and you will be given a set of numbers and symbols at the end. That is your Geek Code."
+		puts "Welcome to the idiot-proof Geek Code 3.12 generator created and maintained by Ben Rausch! Answer the following questions about your geekiness, and you will be given a set of numbers and symbols at the end. That is your Geek Code."
 		puts "To begin, what is your vocation/study? (answer with number)"
 		puts "	1. Business
 	2. Classics
@@ -511,7 +511,7 @@ module BensSillyModule
 		end
 		if (eighth != "!L")
 		puts "How good are you at Linux?"
-		puts "	1. I am Linus, grovel before
+		puts "	1. I am Linus, grovel before me.
 	2. I am a Linux wizard. I munch C code for breakfast and have enough room left over for a kernel debugging. I have so many patches installed that I lost track about ten versions ago. Linux newbies consider me a net.god.
 	3. I use Linux exclusively on my system. I monitor comp.os.linux.* and even answer questions sometimes.
 	4. I use Linux ALMOST exclusively on my system. I've given up trying to achieve Linux.God status, but welcome the OS as a replacement for DOS. I only boot to DOS to play games.
@@ -806,7 +806,7 @@ module BensSillyModule
 		puts "What do you think of Star Trek?"
 		puts "	1. It's not just a TV show, it's a religion. I know all about warp field dynamics and the principles behind the transporter. I have memorized the TECH manual. I speak Klingon. I go to cons with Vulcan ears on. I have no life.
 	2. It's the best show around. I have all the episodes and the movies on tape and can quote entire scenes verbatim. I've built a few of the model kits too. But you'll never catch me at one of those conventions. Those people are kooks.
-	3. It's a damn fine TV show and is one of the only things good on television any more.
+	3. It's a darn fine TV show and is one of the only things good on television any more.
 	4. It's just another TV show.
 	5. Maybe it is just me, but I have no idea what the big deal with Star Trek is. Perhaps I'm missing something but I just think it is bad drama.
 	6. Star Trek is just another Space Opera. William Shatner isn't an actor, he's a poser! And what's with this Jean-Luc Picard? A Frenchman with a British accent? Come on. Isn't Voyager just a rehash of Lost in Space? Has Sisko even breathed in the last two seasons? Come on. I'd only watch this show if my remote control broke.
@@ -1429,7 +1429,7 @@ module BensSillyModule
 		puts prompts[19] # Macintosh, which is incidently what this code is being written on
 		stat = case parts[14]
 		when "M++" then "I am a Mac guru. Anything those DOS putzes and Unix nerds can do, I can do better, and if not, I'll write the damn software to do it."
-		when "M+" then "A Mac has it's uses and I use it quite often."
+		when "M+" then "A Mac has its uses and I use it quite often."
 		when "M" then "I use a Mac, but I'm pretty indifferent about it."
 		when "M-" then "Macs suck. All real geeks have a character prompt."
 		when "M--" then "Macs do more than suck. They make a user stupid by allowing them to use the system without knowing what they are doing. Mac weenies have lower IQs than the fuzz in my navel."
@@ -1689,4 +1689,796 @@ module BensSillyModule
 		end # That was long. Next thing to do is add options for wanting to change Geek status. Oh joy.
 		puts stat # Now that I've done all this, I bet you wonder what my Geek Code is. Here it is. GU d- s: a15 C++ UL L+ E? W++ N? o? K- w+ O? M+ V? PS-- PE++ Y+ PGP? t+ 5? X? R+ tv- b++ DI+ D++ G+++ e- h! !r y?
 	end
+	def BensSillyModule.geek_code_new # Yeah time for a new edition. Let's call it 4.0
+		puts "Welcome to the brand new Geek Code 4.0 generator created and maintained by Benjamin Rausch! Answer the following questions about your geekiness, and you will be given a set of numbers and symbols at the end. That is your Geek Code."
+		puts "To begin, what is your vocation/study? (answer with number)"
+		puts "	1. Business
+	2. Classics
+	3. Commercial Arts
+	4. Computer Management
+	5. Computer Science
+	6. Communications
+	7. Engineering
+	8. Education
+	9. Fine Arts
+	10. Government
+	11. Humanities
+	12. Information Technology
+	13. Jurisprudence (Law)
+	14. Library Science
+	15. Literature
+	16. Mass Communications
+	17. Math
+	18. Medicine
+	19. Music
+	20. Performing Arts
+	21. Philosophy
+	22. Science (Physics, Chemistry, Biology, etc.)
+	23. Social Science (Psychology, Sociology, etc.)
+	24. Technical Writing
+	25. Other
+	26. Undecided
+	27. No Qualifications
+	28. Jack of All Trades"
+		num = gets.chomp.to_i
+		first = case num
+		when 1 then "B"
+		when 2 then "C"
+		when 3 then "CA"
+		when 4 then "CM"
+		when 5 then "CS"
+		when 6 then "CC"
+		when 7 then "E"
+		when 8 then "ED"
+		when 9 then "FA"
+		when 10 then "G"
+		when 11 then "H"
+		when 12 then "IT"
+		when 13 then "J"
+		when 14 then "LS"
+		when 15 then "L"
+		when 16 then "MC"
+		when 17 then "M"
+		when 18 then "MD"
+		when 19 then "MU"
+		when 20 then "PA"
+		when 21 then "P"
+		when 22 then "S"
+		when 23 then "SS"
+		when 24 then "TW"
+		when 25 then "O"
+		when 26 then "U"
+		when 27 then "!"
+		when 28 then "AT"
+		end
+		first = "G"+first
+		puts "Do you have a second major? y/n"
+		ans = gets.chomp.downcase
+		if ans == "y"
+			puts "What is the number of your second vocation?"
+			num = gets.chomp.to_i
+			extra = case num
+			when 1 then "B"
+			when 2 then "C"
+			when 3 then "CA"
+			when 4 then "CM"
+			when 5 then "CS"
+			when 6 then "CC"
+			when 7 then "E"
+			when 8 then "ED"
+			when 9 then "FA"
+			when 10 then "G"
+			when 11 then "H"
+			when 12 then "IT"
+			when 13 then "J"
+			when 14 then "LS"
+			when 15 then "L"
+			when 16 then "MC"
+			when 17 then "M"
+			when 18 then "MD"
+			when 19 then "MU"
+			when 20 then "PA"
+			when 21 then "P"
+			when 22 then "S"
+			when 23 then "SS"
+			when 24 then "TW"
+			when 25 then "O"
+			when 26 then "U"
+			when 27 then "!"
+			when 28 then "AT"
+			end
+			first = first + "/" + extra
+		end
+		puts "Great. Next, how do you dress?"
+		puts "	1. I tend to wear conservative dress such as a business suit or worse, a tie.
+	2. Good leisure-wear. Slacks, button-shirt, etc. No jeans, tennis shoes, or t-shirts.
+	3. I dress a lot like those found in catalog ads. Bland, boring, without life or meaning.
+	4. I'm usually in jeans and a t-shirt.
+	5. My t-shirts go a step further and have a trendy political message on them.
+	6. Punk dresser, including, but not limited to, torn jeans and shirts, body piercings, and prominent tattoos.
+	7. Cross Dresser
+	8. I have no idea what I am wearing right now, let alone what I wore yesterday.
+	9. No clothing. Quite a fashion statement, don't you think?
+	10. I wear the same clothes all the time, no matter the occasion, forgetting to do laundry between wearings."
+		num = gets.chomp.to_i
+		second = case num
+		when 1 then "d++"
+		when 2 then "d+"
+		when 3 then "d"
+		when 4 then "d-"
+		when 5 then "d--"
+		when 6 then "d---"
+		when 7 then "dx"
+		when 8 then "d?"
+		when 9 then "!d"
+		when 10 then "dpu"
+		end
+		puts "How hygenic are you?"
+		puts "	1. I shower every time I come home. I go to a salon/barbershop more than twice a month. I don't leave the house without applying name brand hair care products and cologne/perfume.
+	2. I shower twice a day. I regularly get my hair trimmed so I stay on top of current fashion trends. I apply hair products and sometimes fragrances before I leave for work.
+	3. I shower once a day, twice if I exercise that day. I get my hair cut regularly. I spruce up before I go to parties.
+	4. I shower daily. I get my hair cut when it needs it. I'll wear cologne/perfume on a date, but that's it.
+	5. I shower on workdays. I get my hair cut when it gets in my eyes. The two days cologne/perfume will be on my body are my wedding and my funeral.
+	6. I only shower when deodorant can't hide my smell. I cut my own hair when it gets in my eyes. I've never worn any cologne/perfume, nor will I ever.
+	7. I take a monthly shower and I don't use deodorant. I never cut my hair, if it's long enough I just rubber-band it into a ponytail. What's cologne/perfume?
+	8. I am from the 16th century."
+	num = gets.chomp.to_i
+		third = case num
+		when 1 then "h+++"
+		when 2 then "h++"
+		when 3 then "h+"
+		when 4 then "h"
+		when 5 then "h-"
+		when 6 then "h--"
+		when 7 then "h---"
+		when 8 then "h----"
+		end
+		puts "How tall are you?"
+		puts "	1. I usually have to duck through doors.
+	2. I'm a basketball candidate.
+	3. I'm a little taller than most.
+	4. I'm an average geek.
+	5. I look up to most people.
+	6. I look up to damn near everybody.
+	7. I take a phone book with me when I go out so I can see to eat dinner."
+		num = gets.chomp.to_i
+		fourth_uno = case num
+		when 1 then "+++"
+		when 2 then "++"
+		when 3 then "+"
+		when 4 then ""
+		when 5 then "-"
+		when 6 then "--"
+		when 7 then "---"
+		end
+		puts "Now, how large are you?"
+		puts "	1. I take up three movie seats.
+	2. I'm a linebacker candidate.
+	3. I'm a little rounder than most
+	4. I'm an average geek.
+	5. Everyone tells me to gain a few pounds.
+	6. I tend to have to fight against a strong breeze.
+	7. My bones are pooking through my skin."
+		num = gets.chomp.to_i
+		fourth_dos = case num
+		when 1 then "+++"
+		when 2 then "++"
+		when 3 then "+"
+		when 4 then ""
+		when 5 then "-"
+		when 6 then "--"
+		when 7 then "---"
+		end
+		fourth = "s"+ fourth_uno + ":" + fourth_dos
+		puts "Next is your age. Do you wish to give exact age (1), or age range (2)?"
+		num = gets.chomp.to_i
+		if num == 1
+			puts "Alright, what is your age? (enter a number)"
+			age = gets.chomp
+			fifth = "a"+age
+		else
+		puts "Alright, enter the number of your age range"
+		puts "	1. 60+
+	2. 50-59
+	3. 40-49
+	4. 30-39
+	5. 25-29
+	6. 20-24
+	7. 15-19
+	8. 10-14
+	9. 9 and under (Geek in training?)
+	10. Immortal
+	11. It's none of your business how old I am"
+		age_range = gets.chomp.to_i
+		fifth = case num
+		when 1 then "a+++"
+		when 2 then "a++"
+		when 3 then "a+"
+		when 4 then "a"
+		when 5 then "a-"
+		when 6 then "a--"
+		when 7 then "a---"
+		when 8 then "a----"
+		when 0 then "a-----"
+		when 10 then "a?"
+		when 11 then "!a"
+		end
+	end
+		puts "How are you with computers?"
+		puts "	1. I'll be first in line to get the new cybernetic interface installed into my skull.
+	2. You mean there is life outside of Internet? You're kidding me! I haven't dragged myself to class in weeks.
+	3. Computers are a large part of my existence. When I get up in the morning, the first thing I do is log myself in. I play games on weekends, but still manage to stay off of academic probation.
+	4. Computers are fun and I enjoy using them. I pwn n00bs all day and I can use Word without trouble. I also know that when it says 'press any key to continue', I don't have to look for a key labeled 'ANY'.
+	5. Computers are a tool, nothing more. I use it when it serves my purpose.
+	6. Anything more complicated than my calculator and I'm screwed.
+	7. Where's the on switch?
+	8. If you even mention computers, I will rip your head off!"
+		num = gets.chomp.to_i
+		sixth = case num
+		when 1 then "C++++"
+		when 2 then "C+++"
+		when 3 then "C++"
+		when 4 then "C+"
+		when 5 then "C"
+		when 6 then "C-"
+		when 7 then "C--"
+		when 8 then "C---"
+		end
+		puts "What do you think of Windows?"
+		puts "	1. I am Bill Gates.
+	2. I already have the preview of the next Windows version installed. I know C and C++ better than I know English. Bill Gates is my idol.
+	3. I love Windows. I know C and want to learn C++. I've written applications for Windows.
+	4. I know my way around Windows. I can troubleshoot with little to no assistance.
+	5. I use Windows and am pretty indifferent about it.
+	6. Windows is an inferior operating system. Open source is the future.
+	7. Windows is an inferior operating system. Mac is the future.
+	8. Windows has set back the computing industry by at least 10 years. Bill Gates should be drawn, quartered, hung, shot, poisoned, disemboweled, and then REALLY hurt.
+	9. I don't use or have an opinion on Windows."
+		num = gets.chomp.to_i
+		seventh = case num
+		when 1 then "w++++"
+		when 2 then "w+++"
+		when 3 then "w++"
+		when 4 then "w+"
+		when 5 then "w"
+		when 6 then "w-"
+		when 7 then "w--"
+		when 8 then "w---"
+		when 9 then "w?"
+		end
+		puts "How do you feel about the Macintosh?"
+		puts "	1. I am a Mac guru. Anything those Windows putzes and Linux nerds can do, I can do better, and if not, I'll write the software to do it.
+	2. A Mac has its uses and I use it quite often.
+	3. I use a Mac, but I'm pretty indifferent about it.
+	4. Macs suck. ALl real geeks have a character prompts.
+	5. Macs do more than suck. They make a user stupid by allowing them to use the system without knowing what they are doing. Mac weenies have lower IQs than the fuzz in my navel.
+	6. I don't use or have an opinion on Macintoshes."
+		num = gets.chomp.to_i
+		eighth = case num
+		when 1 then "M++"
+		when 2 then "M+"
+		when 3 then "M"
+		when 4 then "M-"
+		when 5 then "M--"
+		when 6 then "M?"
+		end
+		puts "What Linux distribution do you use?"
+		puts "	1. Mint
+	2. Ubuntu
+	3. Debian GNU/Linux
+	4. Mageia
+	5. Fedora
+	6. openSUSE
+	7. Arch Linux
+	8. CentOS
+	9. PCLinuxOS
+	10. Slackware Linux
+	11. Red Hat
+	12. FreeBSD
+	13 SteamOS"
+		num = gets.chomp.to_i
+		nine_one = case num
+		when 1 then "M"
+		when 2 then "U"
+		when 3 then "D"
+		when 4 then "MA"
+		when 5 then "F"
+		when 6 then "OS"
+		when 7 then "A"
+		when 8 then "C"
+		when 9 then "PC"
+		when 10 then "S"
+		when 11 then "R"
+		when 12 then "FB"
+		when 13 then "SO"
+		end
+		puts "How good are you at Linux?"
+		puts "	1. I am Linus, grovel before me.
+	2. I am a Linux wizard. I munch C code for breakfast and have enough room left over for a kernel debugging. I have so many patches installed that I lost track about ten versions ago. Linux newbies consider me a net.god.
+	3. I use Linux exclusively on my system. I monitor Linux forums and even answer questions sometimes.
+	4. I use Linux ALMOST exclusively on my system. I've given up trying to achieve Linux.God status, but welcome the OS as a replacement for Windows. I only boot Windows to play games.
+	5. I've managed to get Linux installed and even used it a few times. It seems like it is just another OS.
+	6. I know what Linux is, but that's about all.
+	7. I have no desire to use Linux and frankly don't give a rat's patootie about it. OSX and Windows are both superior.
+	8. Unix sucks. Because Linux = Unix, Linux Sucks. I worship Bill Gates.
+	9. I am Bill Gates."
+		num = gets.chomp.to_i
+		nine_two = case num
+		when 1 then "L+++++"
+		when 2 then "L++++"
+		when 3 then "L+++"
+		when 4 then "L++"
+		when 5 then "L+"
+		when 6 then "L"
+		when 7 then "L-"
+		when 8 then "L--"
+		when 9 then "L---"
+		end
+		ninth = nine_one+nine_two
+		puts "How good are you at web design?"
+		puts "	1. I dream in Ruby, Javascript and/or PHP. I never have to look at documentation. I can deduce the entire HTML of a site just by looking at it. I have made more than a dozen websites.
+	2. I know Ruby, Javascript, and/or PHP well but refer to documentation on occasion. I have made several sites.
+	3. I'm familiar with at least one scipting language, but not fantastic. I keep tabs of documentation open whenever I'm working on a site. I've made a couple websites.
+	4. I can write HTML, but scripting is out of my league. I've made at least one webpage.
+	5. I don't write HTML, but I know another programming language so I can (kind of) read it.
+	6. I don't know any programming languages, let alone know anything about web design.
+	7. Is web design what spiders do when they lay traps for flies?"
+		num = gets.chomp.to_i
+		tenth = case num
+		when 1 then "wd+++"
+		when 2 then "wd++"
+		when 3 then "wd+"
+		when 4 then "wd"
+		when 5 then "wd-"
+		when 6 then "wd--"
+		when 7 then "wd---"
+		end
+		puts "How much do you use the World Wide Web?"
+		puts "	1. Every waking moment I am plugged in to the web. I have membership on more than fifty sites, use the web for nearly all purchases, and get all of my entertainment on the Internet. I have forgotten what life was like before the 'net.
+	2. I am on the web for much of the day. I have membership on thirty-odd sites. I purchase many things on the web, but still go to the store to buy clothing and food. I get most of my entertainment from the net, but ocassionally turn the TV on or go out for a movie.
+	3. I'm on the web every day, and enjoy using it. I have membership on more than a dozen sites. I buy computer parts and electrical components on the web, but for everything else I go to the store. I have Netflix, but enjoy TV and movie theaters too.
+	4. I'm on the net a little each day. I have membership only on sites like Facebook and Amazon. If I can't find something in the store, I'll get it on the net. I'll watch a video on YouTube now and then.
+	5. I use the net a few times a week to check my email. I would only buy something on the net if that was the only place to get it. I rarely watch videos or browse the net.
+	6. I use Internet Explorer when I surf the net, it's the only browser I have installed.
+	7. I don't use the web."
+		num = gets.chomp.to_i
+		eleventh = case num
+		when 1 then "W+++"
+		when 2 then "W++"
+		when 3 then "W+"
+		when 4 then "W"
+		when 5 then "W-"
+		when 6 then "W--"
+		when 7 then "!W"
+		end
+		puts "What is your experience with Pretty Good Privacy (PGP)?"
+		puts "	1. I am Phillip Zimmerman.
+	2. I don't send or answer mail that is not encrypted, or at the very least signed. If you are reading this without decrypting it first, something is wrong. IT DIDN'T COME FROM ME!
+	3. I have the most recent version and use it regularly.
+	4. \"Finger me for my public key.\"
+	5. I've used it, but stopped long ago.
+	6. I don't have anything to hide.
+	7. I feel that the glory of the Internet is in the anarchic, trusting environment that so nurtures the exchange of information. Encryption just bogs that down.
+	8. If you support encryption on the Internet, you must be a drug dealer or terrorist or something like that.
+	9. Oh, here is something you all can use that is better (insert Clipper here).
+	10. I've never used Pretty Good Privacy nor have an opinion on encryption."
+		num = gets.chomp.to_i
+		twelfth = case num
+		when 1 then "PGP++++"
+		when 2 then "PGP+++"
+		when 3 then "PGP++"
+		when 4 then "PGP+"
+		when 5 then "PGP"
+		when 6 then "PGP-"
+		when 7 then "PGP--"
+		when 8 then "PGP---"
+		when 9 then "PGP----"
+		when 10 then "PGP?"
+		end
+		puts "Where do you land on the political and social issues sliding scale?"
+		puts "	1. Legalize drugs! Abolish the government. \"Screw the draft!\"
+	2. I give to liberal causes. I march for gay rights. I'm a card carrying member of the ACLU. Keep abortion safe and legal.
+	3. My whole concept of liberalism is that nobody has the right to tell anybody else what to do, on either side of the political fence. If you don't like it, turn the bloody channel.
+	4. I really don't have an opinion; nobody's messing with my freedoms right now.
+	5. Label records! Keep dirty stuff off the TV and the Internet.
+	6. Oppose sex education, abortion rights, gay rights. Rush Limbaugh is my spokesman.
+	7. Repent left-wing sinners and change your wicked evil ways. Rand Paul 2016."
+		num = gets.chomp.to_i
+		thirteenth = case num
+		when 1 then "PS+++"
+		when 2 then "PS++"
+		when 3 then "PS+"
+		when 4 then "PS"
+		when 5 then "PS-"
+		when 6 then "PS--"
+		when 7 then "PS---"
+		end
+		puts "What are your thoughts on politics and economics?"
+		puts "	1. Abolish antitrust legislation. Raise taxes on everyone but the rich so that the money can trickle-down to the masses.
+	2. Keep the government off the backs of businesses. Deregulate as much as possible.
+	3. Balance the budget with spending cuts and an amendment.
+	4. Distrust both government and business.
+	5. It's ok to increase government spending, so we can help more poor people. Tax the rich! Cut the defense budget!
+	6. Capitalism is evil! Government should provide the services we really need. Nobody should be rich."
+		num = gets.chomp.to_i
+		fourteenth = case num
+		when 1 then "PE+++"
+		when 2 then "PE++"
+		when 3 then "PE+"
+		when 4 then "PE"
+		when 5 then "PE-"
+		when 6 then "PE--"
+		end
+		puts "What is your opinion on the National Security Agency?"
+		puts "	1. The NSA is a an unconstitutional institution, it violates our fourth amendment rights.
+	2. I don't want the NSA in my life, the department should be regulated to monitor ex-cons and other citizens with probable cause to purport a terror attack. They don't need to know what the average citizen is doing.
+	3. I want the NSA to be limited in power, they have access to too much of the general populace's information.
+	4. I'm neither for nor against the NSA.
+	5. I've got nothing to hide, I don't mind monitoring if it lowers terrorist attacks.
+	6. If you don't want to let the NSA to check what you're doing online, you've got something to hide.
+	7. The NSA should be able to get any information they need from any US citizen, I trust they're using it to prevent terror attacks."
+		num = gets.chomp.to_i
+		fifteenth = case num
+		when 1 then "p+++"
+		when 2 then "p++"
+		when 3 then "p+"
+		when 4 then "p"
+		when 5 then "p-"
+		when 6 then "p--"
+		when 7 then "p---"
+		end
+		puts "What do you think of Star Trek?"
+		puts "	1. It's not just a TV show, it's a religion. I know all about warp field dynamics and the principles behind the transporter. I have memorized the TECH manual. I speak Klingon. I go to cons with Vulcan ears on. I have no life.
+	2. It's the best show around. I have all the episodes and the movies on tape and can quote entire scenes verbatim. I've built a few of the model kits too. But you'll never catch me at one of those conventions. Those people are kooks.
+	3. It's a darn fine TV show and is one of the only things good on television any more.
+	4. It's just another TV show.
+	5. Maybe it is just me, but I have no idea what the big deal with Star Trek is. Perhaps I'm missing something but I just think it is bad drama.
+	6. Star Trek is just another Space Opera. William Shatner isn't an actor, he's a poser! And what's with this Jean-Luc Picard? A Frenchman with a British accent? Come on. Isn't Voyager just a rehash of Lost in Space? Has Sisko even breathed in the last two seasons? Come on. I'd only watch this show if my remote control broke.
+	7. Star Trek SUCKS! It is the worst crap I have ever seen! Hey, all you trekkies out there, GET A LIFE! (William Shatner is in this category)
+	8. I identify with Barclay, the greatest of the Trek Geeks.
+	9. I don't watch or have an opinion on Star Trek."
+		num = gets.chomp.to_i
+		sixteenth = case num
+		when 1 then "t+++"
+		when 2 then "t++"
+		when 3 then "t+"
+		when 4 then "t"
+		when 5 then "t-"
+		when 6 then "t--"
+		when 7 then "t---"
+		when 8 then "t*"
+		when 9 then "t?"
+		end
+		puts "What do you think of Star Wars?"
+		puts "	1. I know the Expanded Universe better than I know our universe. I have all three films memorized. There are no such things as prequels. I can recite the history and indigenous races of every planet in the Galaxy. George Lucas is the antichrist.
+	2. The Star Wars original trilogy is my favorite threesome of films. I love the Star Wars universe so much I've even delved into some Extended Universe material. I loathe the prequels and Lucas's alterations to the films with a passion.
+	3. I love the films. I've gone to a costume party as a Star Wars character at least once. I'll be first in line for the midnight premiere of the next movie, even if it is made by the company we don't speak of.
+	4. The movies are great, I definitely prefer the original theatrical releases to the altered versions Lucas has made over the years.
+	5. I've seen the movies, they're enjoyable.
+	6. I've seen the movies. They seem like they're just low-budget sci-fi films.
+	7. Star Wars is overrated and silly. A meter wide hole to blow up a space station? Puh-leeze.
+	8. The original trilogy was ok, but the prequels are where the series really shines.
+	9. Jar Jar is my favorite character! He's so funny and adds a lot to the series.
+	10. I am George Lucas.
+	11. I have never seen Star Wars."
+		num = gets.chomp.to_i
+		seventeenth = case num
+		when 1 then "sw++++"
+		when 2 then "sw+++"
+		when 3 then "sw++"
+		when 4 then "sw+"
+		when 5 then "sw"
+		when 6 then "sw-"
+		when 7 then "sw--"
+		when 8 then "sw---"
+		when 9 then "sw----"
+		when 10 then "sw-----"
+		when 11 then "sw?"
+		end
+		puts "What do you think of Doctor Who?"
+		puts "	1. Doctor Who is my favorite television show. If I ever see the TARDIS, I'll drop everything I'm doing and get in. I dream about David Tennant.
+	2. I love Doctor Who. I've seen every episode and create fan theories about where the series is headed. I own a sonic screwdriver.
+	3. The show's enjoyable, I watch it every Saturday night.
+	4. I've seen the show, it's alright.
+	5. I don't get all the buzz about this show. Sub-par acting and production in the original, still a sub-par show after the reboot.
+	6. Awful. A thousand-year-old man travelling the universe with youngsters? Seriously? Someone call Chris Hansen.
+	7. More like Dork-ter Who. Only teenage fangirls watch this shlock. Let me know if you have any questions about real sci-fi shows.
+	8. I've never seen Doctor Who."
+		num = gets.chomp.to_i
+		eighteenth = case num
+		when 1 then "dw+++"
+		when 2 then "dw++"
+		when 3 then "dw+"
+		when 4 then "dw"
+		when 5 then "dw-"
+		when 6 then "dw--"
+		when 7 then "dw---"
+		when 8 then "dw?"
+		end
+		puts "What do you think of Firefly?"
+		puts "	1. I am Joss Whedon
+	2. I have a deep passion for this show. I would give my right arm to travel around the 'Verse with Mal and his crew. Fox has committed an unpardonable sin in cancelling the show. Joss Whedon is my idol.
+	3. Firefly's a great show. It has fantastic writing and characters and I'll always long for a second season.
+	4. Firefly's an acceptable show.
+	5. Firefly's confused. I just don't get the appeal of a Space Western.
+	6. Sorry, no show cancelled in its first season can be good.
+	7. Are you talking about the bug?
+	8. I am a Fox executive.
+	9. I've never seen Firefly."
+		num = gets.chomp.to_i
+		nineteenth = case num
+		when 1 then "F+++"
+		when 2 then "F++"
+		when 3 then "F+"
+		when 4 then "F"
+		when 5 then "F-"
+		when 6 then "F--"
+		when 7 then "F---"
+		when 8 then "F----"
+		when 9 then "F?"
+		end
+		# Battlestar Galactica could go here. I know nothing about it, though.
+		puts "How much are you into Role-Playing?"
+		puts "	1. I've written and published my own gaming materials.
+	2. There is no life outside the role of the die. I know all of piddly rules of (chosen game). _MY_ own warped rules scare the rest of the players.
+	3. I've got my weekly sessions set up and a character that I know better than I know myself.
+	4. Role-Playing? That's just something to do to kill a Saturday afternoon.
+	5. Gosh, what an utter waste of time!
+	6. Role-Players are instruments of pure evil.
+	7. I work for T$R.
+	8. I thought life WAS role-playing?
+	9. I've never role-played, nor do I have an opinion on role-playing."
+		num = gets.chomp.to_i
+		twentieth = case num
+		when 1 then "R+++"
+		when 2 then "R++"
+		when 3 then "R+"
+		when 4 then "R"
+		when 5 then "R-"
+		when 6 then "R--"
+		when 7 then "R---"
+		when 8 then "R*"
+		when 9 then "R?"
+		end
+		puts "How much do you use social media?"
+		puts "	1. I can't exist without social media. I use it to keep up with anyone and everyone. I post everything that happens to me. If I could marry my iPhone, I would.
+	2. I'm a big fan of social media. I'm plugged in wherever I go. Any events I host are planned on social media sites, and I like it that way.
+	3. I generally keep up with social media. I use Facebook, Twitter, and Google+ multiple times per week. Ok, maybe not Google+, but still.
+	4. I use social media infrequently. It's a miniscule part of my daily life, and I could give it up if asked. I check Facebook weekly.
+	5. I rarely use social media. It doesn't add to my life, so why bother?
+	6. I hate social media with passion. It's a total waste of everyone's time, I don't know how anyone could stand revealing every detail of their lives to near strangers.
+	7. I don't use or have an opinion on social media."
+		num = gets.chomp.to_i
+		twentyfirst = case num
+		when 1 then "sm++"
+		when 2 then "sm+"
+		when 3 then "sm"
+		when 4 then "sm-"
+		when 5 then "sm--"
+		when 6 then "sm---"
+		when 7 then "sm?"
+		end
+		puts "How often do you watch television?"
+		puts "	1. There's nothing I can experience \"out there\" that I can't see coming over my satellite dish. I wish there were MORE channels. I live for the O.J. Trial.
+	2. I just leave the tv on, to make sure I don't miss anything.
+	3. I watch some tv every day.
+	4. I watch only the shows that are actually worthwhile, such as those found on PBS.
+	5. I watch tv for the news and 'special programming.'
+	6. I turn my tv on during natural disasters.
+	7. I do not own a television."
+		num = gets.chomp.to_i
+		twentysecond = case num
+		when 1 then "tv+++"
+		when 2 then "tv++"
+		when 3 then "tv+"
+		when 4 then "tv"
+		when 5 then "tv-"
+		when 6 then "tv--"
+		when 7 then "!tv"
+		end
+		puts "How many books do you read?"
+		puts "	1. I read a book a day. I have library cards in three states. I have discount cards from every major bookstore. I've ordered books from another country to get my Favorite Author Fix.
+	2. I consume a few books a week as part of a staple diet.
+	3. I find the time to get through at least one new book a month.
+	4. I enjoy reading, but don't get the time very often.
+	5. I read the newspaper and the occasional book.
+	6. I read when there is no other way to get the information.
+	7. I did not actually READ the geek code, I just had someone tell me."
+		num = gets.chomp.to_i
+		twentythird = case num
+		when 1 then "b++++"
+		when 2 then "b+++"
+		when 3 then "b++"
+		when 4 then "b+"
+		when 5 then "b"
+		when 6 then "b-"
+		when 8 then "b--"
+		end
+		puts "What do you think of Dilbert?"
+		puts "	1. I am Scott Adams.
+	2. I've received mail from Scott Adams. I'm in the DNRC (Dogbert's New Ruling Class).
+	3. I am a Dilbert prototype.
+	4. I work with people that act a lot like Dilbert and his boss.
+	5. I read Dilbert daily, often understanding it.
+	6. I read Dilbert infrequently, rarely understanding it.
+	7. Is that the comic about the engineers?
+	8. Don't read it, but I think the dog is kinda cute.
+	9. I don't think it's funny to make fun of managers trying their best to run their organizational units."
+		num = gets.chomp.to_i
+		twentyfourth = case num
+		when 1 then "DI+++++"
+		when 2 then "DI++++"
+		when 3 then "DI+++"
+		when 4 then "DI++"
+		when 5 then "DI+"
+		when 6 then "DI"
+		when 7 then "DI-"
+		when 8 then "DI--"
+		when 9 then "DI---"
+		end
+		puts "How often do you read comic books?"
+		puts "	1. I budget more of my money for comics than for food. I subscribe to eight or more comics and know the plots from every issue of my many favorite series.
+	2. I'm subscribed to three or more comics. I know what's going on in the Marvel and DC universes at any given time.
+	3. I subscribe to at least one comic. I often pick up cool comics I see that I'm not subscribed to.
+	4. I'll pick up a comic when I feel like stopping by my local store, but I'm not subscribed to anything.
+	5. I read a comic book every once in a while, they're nice but not a monthly expense.
+	6. Comic books are kinda lame. They're overpriced and too little content comes out eah month to properly further a story's plot.
+	7. Comic books are for manchildren and weeaboos. The medium is inefficient for telling a story and is in general lame. Go see a Marvel movie to get your superhero fix.
+	8. I don't read or have an opinion on comic books."
+		num = gets.chomp.to_i
+		twentyfifth = case num
+		when 1 then "c++++"
+		when 2 then "c+++"
+		when 3 then "c++"
+		when 4 then "c+"
+		when 5 then "c"
+		when 6 then "c-"
+		when 7 then "c--"
+		when 8 then "c?"
+		end
+		puts "How much education do you have?"
+		puts "	1. I am Stephen Hawking.
+	2. Managed to get my Ph.D.
+	3. Got a Masters degree.
+	4. God a Bachelors degree.
+	5. Got an Associates degree.
+	6. Finished High School.
+	7. Haven't finished High School.
+	8. Haven't even entered High School.
+	9. I learned everything there is to know about life from the \"Hitchhiker's Trilogy\"."
+		num = gets.chomp.to_i
+		twentysixth = case num
+		when 1 then "e+++++"
+		when 2 then "e++++"
+		when 3 then "e+++"
+		when 4 then "e++"
+		when 5 then "e+"
+		when 6 then "e"
+		when 7 then "e-"
+		when 8 then "e--"
+		when 9 then "e*"
+		end
+		puts "Describe your housing situation."
+		puts "	1. Living in a cave with 47 computers and an Internet feed, located near a Dominoes pizza. See option 9 of the clothing question.
+	2. Living alone, get out once a week to buy food, no more than once a month to do laundry. All surfaces covered.
+	3. Friends come over to visit every once in a while to talk about Geek things. There is a place for them to sit.
+	4. Living with one or more registered geeks.
+	5. Living with one or more people who know nothing about being a Geek and refuse to watch Babylon 5.
+	6. Married, (persons living romantically with someone might as well label themselves this, you're as good as there already.)
+	7. Married with children - Al Bundy can sympathize.
+	8. I am stuck living with my parents!
+	9. I'm not sure where I live anymore. This lab/workplace seems like home to me."
+		num = gets.chomp.to_i
+		twentyseventh = case num
+		when 1 then "h++"
+		when 2 then "h+"
+		when 3 then "h"
+		when 4 then "h-"
+		when 5 then "h--"
+		when 6 then "h---"
+		when 7 then "h----"
+		when 8 then "h!"
+		when 9 then "h*"
+		end
+		puts "What is your relationship status?"
+		puts "	1. Found someone, dated, and am now married.
+	2. I've dated my current S.O. for a long time.
+	3. I date frequently, bouncing from one relationship to another.
+	4. I date periodically.
+	5. I have difficulty maintaining a relationship.
+	6. People just aren't interested in dating me.
+	7. I'm beginning to think that I'm a leper or something, the way people avoid me like the plague.
+	8. I've never had a relationship.
+	9. I claim membership in the SBCA (Sour Bachelor(ette)'s Club of America). The motto is 'Bitter, but not Desperate'. First founded at Caltech.
+	10. I was going out with someone, but the asshole dumped me."
+		num = gets.chomp.to_i
+		twentyeighth = case num
+		when 1 then "r+++"
+		when 2 then "r++"
+		when 3 then "r+"
+		when 4 then "r"
+		when 5 then "r-"
+		when 6 then "r--"
+		when 7 then "r---"
+		when 8 then "!r"
+		when 9 then "r*"
+		when 10 then "r%"
+		end
+		puts "What is your Hipster status? Note: this time the numbers are reversed, because a greater number indicates a greater hipster-ity."
+		puts "	6. I was in the cosmos at the point of their inception. I heard the thunderous crack of space and time as this reality came in to being. Essentially, I listened to the universe before it was cool.
+	5. I grow all of my own food. I only listen to music produced by nature. I burn my lips often by drinking home-brewed coffee before it's cool.
+	4. I'm so underground people confuse me for a dwarf. I don't even listen to vinyls, the only way to enjoy music properly is to see the bands live. All of my interests are quirky, and may range from writing free verse poetry, growing my own coffee, and brewing my own beer.
+	3. I couldn't even think of listening to mainstream music. My favorite band is one no one else has heard of. Doing things ironically is part of my life. I wear underground clothing brands. PBR is pretty great.
+	2. I listen to my music (alternative, of course) on vinyl. I get coffee at indie coffeehouses. I knew about one or more bands before they were cool.
+	1. I listen to some alternative bands. I don't get my coffee at Starbucks. I have at least one unusual interest.
+	0. I don't particularly listen to alternative bands. I might get my coffee at Starbucks. My hobbies and interests are primarily mainstream."
+		num = gets.chomp
+		twentyninth = "h" + num
+		puts "Now, this is a bit different: You will see a statement about how much you are into a fandom, then you will pick for which fandoms that statement is true. Puts the numbers of the statements that are true separated by a space."
+		fandoms = ["Anime","Battlestar Galactica", "Blake's Seven","Buffy the Vampire Slayer","DC Comics","Disney","Doctor Who","Dreamworks","Firefly","Fringe","Furry","Game of Thrones","Harry Potter","Lord of the Rings","Marvel Comics","My Little Pony","Pixar","Pokemon","Sherlock","Star Trek","Star Wars","Supernatural","X-Files"]
+		fandom_short = ["an","bg","b7","b","DC","D","dw","dr","F","fr","fu","GT","HP","LR","M","p","px","pm","s","t","sw","sn","X"]
+		fandom_levels = ["I've run a panel at the convention, and a good portion of the online community knows who I am.","I go to the convention every year. I contribute significantly to fan creations surrounding this fandom.","I've gone to the convention. I contribute to fan creations and purchase fandom-related merchandise.","I haven't gone to a convention, but would like to. I am very familiar with the fandom source material, and can explain how the franchise's world works as well as I can our own.","I love the franchise and check out fan-generated material online. I may have even contributed my own material.","I like the franchise a lot and may check out fan-generated content about the franchise.","I like the franchise."]
+		fanstuffs = []
+		(0..6).each do |i| # This is probably the most complex thing I've done. Marvel at it.
+			puts "\"#{fandom_levels[i]}\""
+			(0..(fandoms.length-1)).each do |j|
+				new_j = j+1
+				print "#{new_j}. "
+				puts fandoms[j]    
+			end
+			nums = gets.chomp
+			nums_array = nums.split(" ")
+			k=0
+			for l in nums_array
+				m = l.to_i
+				k = k + 1
+				fanstuffs.push(fandom_short[(m-1)]) # Just had an epiphany. This is awesome.
+				fandoms.delete_at(m-1)
+				fandom_short.delete_at(m-1)
+				if (k<nums_array.length)
+					fanstuffs.push(":")
+				elsif (i<6)
+					fanstuffs.push("/")
+				end
+			end
+		end
+		print first + " " + second + " " + third + " " + " " + fourth + " " + fifth + " " + sixth + " " + seventh + " " + eighth + " " + ninth + " " + tenth + " " + " " + eleventh + " " + twelfth + " " + thirteenth + " " + fourteenth + " " + fifteenth + " " + sixteenth + " " + seventeenth + " " + eighteenth + " " + nineteenth + " " + twentieth + " " + twentyfirst + " " + twentysecond + " " + twentythird + " " + twentyfourth + " " + twentyfifth + " " + twentysixth + " " + twentyseventh + " " + twentyeighth + " " + twentyninth
+		for i in fanstuffs
+			print i
+		end
+		puts "" # This way everything ends up on the same line, but not the same as the command prompt
+	end
 end # Idea: Relative war timer, prints out when every important war would begin if it ended today, and when it would end if it began today
+def BensSillyModule.do_this
+	fandoms = ["Anime","Battlestar Galactica", "Blake's Seven","Buffy the Vampire Slayer","DC Comics","Disney","Doctor Who","Dreamworks","Firefly","Fringe","Furry","Game of Thrones","Harry Potter","Lord of the Rings","Marvel Comics","My Little Pony","Pixar","Pokemon","Sherlock","Star Trek","Star Wars","Supernatural","X-Files"]
+	fandom_short = ["an","bg","b7","b","DC","D","dw","dr","F","fr","fu","GT","HP","LR","M","p","px","pm","s","t","sw","sn","X"]
+	fandom_levels = ["I've run a panel at the convention, and a good portion of the online community knows who I am.","I go to the convention every year. I contribute significantly to fan creations surrounding this fandom.","I've gone to the convention. I contribute to fan creations and purchase fandom-related merchandise.","I haven't gone to a convention, but would like to. I am very familiar with the fandom source material, and can explain how the franchise's world works as well as I can our own.","I love the franchise and check out fan-generated material online. I may have even contributed my own material.","I like the franchise a lot and may check out fan-generated content about the franchise.","I like the franchise."]
+	fanstuffs = []
+	(0..6).each do |i| # This is temporary, will be removed in the next commit
+		puts "\"#{fandom_levels[i]}\""
+		(0..(fandoms.length-1)).each do |j|
+			new_j = j+1
+			print "#{new_j}. "
+			puts fandoms[j]    
+		end
+		nums = gets.chomp
+		nums_array = nums.split(" ")
+		k=0
+		for l in nums_array
+			m = l.to_i
+			k = k + 1
+			fanstuffs.push(fandom_short[(m-1)])
+			fandoms.delete_at(m-1)
+			fandom_short.delete_at(m-1)
+			if (k<nums_array.length)
+				fanstuffs.push(":")
+			elsif (i<6)
+				fanstuffs.push("/")
+			end
+		end
+	end
+	for i in fanstuffs
+		print i
+	end
+	puts ""
+end
