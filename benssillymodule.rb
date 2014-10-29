@@ -20,42 +20,14 @@ module BensSillyModule
 		puts " of stars."
 	end
 	def BensSillyModule.markify(string) # The order of these replacements is crucial to not having repeating h's
-		if string.include? "wa"
-			string.gsub!(/wa/, "hwa")
+		a = ["wa","Wa","we","We","wi","Wi","wo","Wo","wu","Wu","wh","Wh"] # Wow. Shortened this to a ten line loop. I should do this for all of my methods.
+		b = ["hwa","Hwa","hwe","Hwe","hwi","Hwi","hwo","Hwo","hwu","Hwu","hw","Hw"]
+		for i in (0..a.length) do
+			if string.include? "#{a[i]}"
+				string.gsub!(/#{a[i]}/, "#{b[i]}")
+			end
 		end
-		if string.include? "Wa"
-			string.gsub!(/Wa/, "Hwa")
-		end
-		if string.include? "we"
-			string.gsub!(/we/, "hwe")
-		end
-		if string.include? "We"
-			string.gsub!(/We/, "Hwe")
-		end
-		if string.include? "wi"
-			string.gsub!(/wi/, "hwi")
-		end
-		if string.include? "Wi"
-			string.gsub!(/Wi/, "Hwi")
-		end
-		if string.include? "wo"
-			string.gsub!(/wo/, "hwo")
-		end
-		if string.include? "Wo"
-			string.gsub!(/Wo/, "Hwo")
-		end
-		if string.include? "wu"
-			string.gsub!(/wu/, "hwu")
-		end
-		if string.include? "Wu"
-			string.gsub!(/Wu/, "Hwu")
-		end
-		if string.include? "wh"
-			string.gsub!(/wh/, "hw")
-		end
-		if string.include? "Wh"
-			string.gsub!(/Wh/, "Hw")
-		end
+		puts string
 	end
 	def BensSillyModule.to_cat(string) # Current version adds an extra space to the end. Working on removing that.
 		words = string.split(" ")
@@ -2448,37 +2420,101 @@ module BensSillyModule
 		end
 		puts "" # This way everything ends up on the same line, but not the same as the command prompt
 	end
-end # Idea: Relative war timer, prints out when every important war would begin if it ended today, and when it would end if it began today
-def BensSillyModule.do_this
-	fandoms = ["Anime","Battlestar Galactica", "Blake's Seven","Buffy the Vampire Slayer","DC Comics","Disney","Doctor Who","Dreamworks","Firefly","Fringe","Furry","Game of Thrones","Harry Potter","Lord of the Rings","Marvel Comics","My Little Pony","Pixar","Pokemon","Sherlock","Star Trek","Star Wars","Supernatural","X-Files"]
-	fandom_short = ["an","bg","b7","b","DC","D","dw","dr","F","fr","fu","GT","HP","LR","M","p","px","pm","s","t","sw","sn","X"]
-	fandom_levels = ["I've run a panel at the convention, and a good portion of the online community knows who I am.","I go to the convention every year. I contribute significantly to fan creations surrounding this fandom.","I've gone to the convention. I contribute to fan creations and purchase fandom-related merchandise.","I haven't gone to a convention, but would like to. I am very familiar with the fandom source material, and can explain how the franchise's world works as well as I can our own.","I love the franchise and check out fan-generated material online. I may have even contributed my own material.","I like the franchise a lot and may check out fan-generated content about the franchise.","I like the franchise."]
-	fanstuffs = []
-	(0..6).each do |i| # This is temporary, will be removed in the next commit
-		puts "\"#{fandom_levels[i]}\""
-		(0..(fandoms.length-1)).each do |j|
-			new_j = j+1
-			print "#{new_j}. "
-			puts fandoms[j]    
-		end
-		nums = gets.chomp
-		nums_array = nums.split(" ")
-		k=0
-		for l in nums_array
-			m = l.to_i
-			k = k + 1
-			fanstuffs.push(fandom_short[(m-1)])
-			fandoms.delete_at(m-1)
-			fandom_short.delete_at(m-1)
-			if (k<nums_array.length)
-				fanstuffs.push(":")
-			elsif (i<6)
-				fanstuffs.push("/")
+	def BensSillyModule.jony # Yes. It is that Jony.
+		jonyisms = ["It's revolutionary.","We rebuilt it from the ground up.","It took all our learning.","It's simple, yet so elegant.","It's unlike anything we've ever done before."]
+		prng = Random.new()
+		puts jonyisms[((prng.rand)*(jonyisms.length)).floor]
+	end
+	def BensSillyModule.revolutionary_war_timer
+		def BensSillyModule.m_rep(num) # Yo, dawg, I heard you like methods, so I put a method in your method so you can execute while you execute
+			num = case num
+			when 1 then "January" # Yes, I am pushing a commit with this unfinished method in here, because I need to get the investment calculator online
+			when 2 then "February"
+			when 3 then "March"
+			when 4 then "April"
+			when 5 then "May"
+			when 6 then "June"
+			when 7 then "July"
+			when 8 then "August"
+			when 9 then "September"
+			when 10 then "October"
+			when 11 then "November"
+			when 12 then "December"
 			end
 		end
+		a = Time.now # Can I simplify this into a loop?
+		a_m = BensSillyModule.m_rep(a.month)
+		# 264297600 end of war
+		b = Time.now + 28771200 # end of Boston Siege
+		b_m = BensSillyModule.m_rep(b.month)
+		c = Time.now + 777600 # capture Fort Ticonderoga
+		c_m = BensSillyModule.m_rep(c.month)
+		d = Time.now + # 
+		d_m = BensSillyModule.m_rep(d.month)
+		e = Time.now + # 
+		e_m = BensSillyModule.m_rep(d.month)
+		f = Time.now + # 
+		f_m = BensSillyModule.m_rep(d.month)
+		g = Time.now + # 
+		g_m = BensSillyModule.m_rep(d.month)
+		h = Time.now + # 
+		h_m = BensSillyModule.m_rep(d.month)
+		i = Time.now + # 
+		i_m = BensSillyModule.m_rep(d.month)
+		puts "If the Revolutionary War started now, the Battles of Lexigton and Concord would take place today."
+		puts "The Siege of Boston would take place from today to #{b_m} #{b.day}, #{b.year}"
+		puts "The Gunpowder Incident would take place tomorrow."
+		puts "The Capture of Fort Ticonderoga would take place on #{c_m} #{c.day}, #{c.year}"
+		puts ""
 	end
-	for i in fanstuffs
-		print i
+	def BensSillyModule.astley
+		a = ["give you up","let you down","run around and desert you","make you cry","say goodbye","tell a lie and hurt you"]
+		for i in a do
+			puts "Never gonna #{i}"
+		end
 	end
-	puts ""
+	def BensSillyModule.invest(initial,rate,monthly_contribution,years_contributing,years_growing,compoundings_per_year) # Make this into a CLU as well
+		moneys = [] # Taking a Dave Ramsey finance course, and more often than not the Wifi won't let us connect, so I'm making this investment calculator so I can calculate investment profits anyway.
+		moneys[0] = initial.to_f
+		for i in (1..years_contributing) do
+			moneys[i] = (moneys[i-1]+(monthly_contribution.to_f*12.to_f)/compoundings_per_year.to_f)*((1+rate.to_f/(100.to_f*compoundings_per_year.to_f))**compoundings_per_year)
+		end
+		if years_growing > years_contributing
+			moneys[years_contributing] = moneys[years_contributing]*((1+rate.to_f/(100.to_f*compoundings_per_year.to_f))**(compoundings_per_year.to_f*(years_growing-years_contributing)))
+		end
+		puts "Your final amount is $#{moneys[years_contributing].round(2)}; Your total interest is $#{(moneys[years_contributing]-(initial.to_f+monthly_contribution.to_f*12.to_f*years_contributing.to_f)).round(2)}; and your total investment is $#{(initial.to_f+monthly_contribution.to_f*12.to_f*years_contributing.to_f).round(2)}"
+	end
+	def BensSillyModule.invest_clu
+		puts "What is your initial investment?"
+		print "$"
+		initial = gets.chomp.to_f
+		puts "What is your rate of return (in percent)?"
+		rate = gets.chomp.to_f
+		puts "How much will you contribute monthly?"
+		print "$"
+		monthly_contribution = gets.chomp.to_f
+		puts "How many years will you be contributing?"
+		years_contributing = gets.chomp.to_f
+		puts "How many years will you leave the money to grow?"
+		years_growing = gets.chomp.to_f
+		puts "How many times per year is the interest compounded?"
+		compoundings_per_year = gets.chomp.to_f
+		moneys = []
+		moneys[0] = initial
+		for i in (1..years_contributing) do
+			moneys[i] = (moneys[i-1]+(monthly_contribution*12.to_f)/compoundings_per_year)*((1.to_f+rate/(100.to_f*compoundings_per_year))**compoundings_per_year)
+		end
+		if years_growing > years_contributing
+			moneys[years_contributing] = moneys[years_contributing]*((1.to_f+rate/(100.to_f*compoundings_per_year))**(compoundings_per_year*(years_growing-years_contributing)))
+		end
+		puts "Your final amount is $#{moneys[years_contributing].round(2)}; Your total interest is $#{(moneys[years_contributing]-(initial+monthly_contribution*12.to_f*years_contributing)).round(2)}; and your total investment is $#{(initial+monthly_contribution*12.to_f*years_contributing).round(2)}"
+	end
+	def BensSillyModule.ungame(deck="original")
+		original_prompts = ["When do you get angry?","If you had to move and could only take three things with you, what would you take?","Do you ever feel lonely? When?","What one quality do you look for most in a friend?","What is the best advice you've ever received?","What does freedom mean to you?","Share something you fear.","Name ten famous people you would like to have for parents and why.","If you received $5,000 as a gift, how would you spend it?","What is your favorite sport, and why?","Talk about a happy marriage.","When was the last time you cried, and why?","If someone could give you anything in the world for your birthday, what would you want?","What four things are most important in your life?","What kind of trophy would you like to win?","Share a time when you were embarrassed.","What would you do if you had a \"magic wand\"?","If you were lost in the woods and it got dark, what would you do?","How would you describe yourself to someone who does not know you?","Talk about birthdays.","Make a statement about beauty.","Tell about the neatest birthday present you've ever received.","What do you do in your spare time?","What do you dislike most about yourself?","What is one of your hobbies?","What do you like to day-dream about?","If you were told you have only one week to live, how would you spend it?","Tell about something beautiful.","Describe a happy family.","What seems to complicate your life?","What would you do if you found $1,000 in a vacant lot?","What is the worst thing parents can do to children?","Talk about one of your bad habits.","What really turns you off?","What do you think about when you can't fall asleep?","What is something you can do well?","Share a time when you had hurt feelings.","Talk about \"goose bumpps.\"","If you could change your age, what age would you rather be?","If someone were to write a book about you, what wolud the title be?","What talents do you have (don't be modest)?","What do you like most about yourself?","Tell about a funny experience.","How do you feel when someone laughs at you?","Describe the ideal father.","Tell about a time when you felt proud of yourself.","Say something about policemen.","When do you feel sad?","What is your favorite food?","Describe the best teacher you've ever had.","How do you look when you get angry?","Say something about jokes.","When you are alone and no one else can see or hear you, what do you like to do?","Share one of the happiest days of your life.","If you could become invisible, where would you like to go?","What do you do when you are alone?","Talk about a time when you were very irritated.","What kind of people are the luckiest people in the world?","What do you think your friends say about you when you're not around?","Describe the ideal mother.","What kind of animal would you like to be and where would you like to live?","What is your favorite room in your house and why?","Give three words to describe how you are feeling right now.","Describe your best friend.","What would you like to do to become famous?","What TV or movie star would you like to invite to your birthday party?","If you could take only three people with you on a trip around the world, who would you take with you?","What do you think the ideal age is? Why?","Tell about someone you respect and why.","Who or what makes you feel guilty?","What advice would you give to a younger brother or sister about life?","What was the most difficult thing you have ever said to someone you loved?","Tell about a time you hurt someone.","What is something you'd like to accomplish before you die?","What do parents owe their children?","What do children owe their parents?"]
+		if deck == "original"
+			prng = Random.new()
+			puts original_prompts[((prng.rand)*(original_prompts.length)).floor]
+		end # Will add more decks as I find or make them.
+	end
+	# Make a hangman game that always wins, find a way to process a dictionary into here. Talk to Mark about it.
 end
